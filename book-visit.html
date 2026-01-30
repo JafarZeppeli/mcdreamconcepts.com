@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — McDream Concepts</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* PAGE WRAPPER */
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f8f8f8;
+      color: #333;
+    }
+
+    .contact-hero {
+      height: 320px;
+      background: url('IMG_5382.jpg.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+    }
+
+    .contact-hero h1 {
+      position: relative;
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      z-index: 2;
+      text-align: center;
+    }
+
+    /* CONTACT GRID */
+    .contact-page-wrapper {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .contact-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .contact-card p {
+      margin: 8px 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .contact-card a {
+      color: #ff4da6;
+      font-weight: 600;
+    }
+
+    /* CONTACT FORM */
+    .contact-form-wrapper {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom: 60px;
+    }
+
+    .contact-form-wrapper h2 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: #000;
+    }
+
+    .contact-form-wrapper form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-form-wrapper input,
+    .contact-form-wrapper textarea {
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    .contact-form-wrapper button {
+      padding: 14px;
+      background: #ff4da6;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .contact-form-wrapper button:hover {
+      background: #e6368a;
+    }
+
+    /* MAP */
+    .map-frame {
+      border: none;
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom: 60px;
+    }
+
+/* CONTACT PAGE HEADER FIX */
+.contact-page header {
+    background: #D97A7E !important;   /* your pink brand color */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Make the menu text white so it's visible */
+.contact-page header a {
+    color: #fff !important;
+}
+
+/* Dropdown background inside contact page */
+.contact-page .dropdown-menu,
+.contact-page .submenu {
+    background: #fff !important;
+}
+
+/* Dropdown text inside contact page */
+.contact-page .dropdown-menu a,
+.contact-page .submenu a {
+    color: #000 !important;
+}
+
+/* Hover effect */
+.contact-page .dropdown-menu a:hover,
+.contact-page .submenu a:hover {
+    background: #ffe1ef !important;
+    color: #ff4da6 !important;
+}
+/* UNIVERSAL MENU VISIBILITY FIX */
+header {
+    background: #D97A7E !important;      /* your pinkish header */
+    color: #fff !important;
+}
+
+header a {
+    color: #fff !important;              /* menu links visible everywhere */
+}
+
+/* Dropdown menus */
+header .dropdown-menu,
+header .submenu {
+    background: #fff !important;
+    border-radius: 6px;
+}
+
+header .dropdown-menu a,
+header .submenu a {
+    color: #000 !important;              /* dropdown text black */
+}
+
+header .dropdown-menu a:hover,
+header .submenu a:hover {
+    background: #ffe1ef !important;
+    color: #D97A7E !important;
+}
+
+/* Fix arrow colors */
+header .arrow {
+    color: #fff !important;
+}
+
+
+  </style>
+</head>
+
+<body class="contact-page">
+
+ <header>
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo2.png" alt="Logo" />
+    </a>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+
+ <li class="dropdown-who">
+    <a href="#" class="dropdown-toggle">Who We Are</a><span class="arrow">▾</span></a>
+
+    <ul class="submenu">
+        <li><a href="about.html">About Us</a></li>
+    </ul>
+</li>
+
+
+      <!-- PROJECTS DROPDOWN -->
+    <li class="dropdown dropdown-projects">
+  <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+
+  <ul class="dropdown-menu">
+
+    <!-- Residential -->
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+
+      <ul class="dropdown-menu">
+
+        <!-- Abuja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
+            <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+            <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+            <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+            <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+            <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+            <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+            <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+            <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+            <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
+            <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+          </ul>
+        </li>
+
+        <!-- Kaduna -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
+            <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
+            <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
+          </ul>
+        </li>
+
+        <!-- Kano -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
+          </ul>
+        </li>
+
+        <!-- Lokoja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+   <li class="dropdown-submenu">
+  <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+  <ul class="dropdown-menu">
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+        </ul>
+      </li>
+
+  </ul>
+</li>
+
+    </ul>
+ <li class="dropdown-contact">
+  <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+
+  <ul class="submenu">
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="career.html">Agent/Career Registration</a></li>
+  </ul>
+</li>
+
+<a href="book-visit.html" class="book-btn">Book a Visit</a>
+
+  </nav>
+</header>
+
+
+
+  <!-- CONTACT HERO -->
+  <div class="contact-hero">
+    <h1>Contact Us</h1>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="contact-page-wrapper">
+
+    <!-- OFFICES -->
+    <h2 style="text-align:center; margin-bottom:35px; font-size:30px;">Our Offices</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h3>Abuja (Head Office)</h3>
+        <p><strong>Address:</strong> 1st Floor, Suite 2, Nusaiba Towers, Plot 117 Ahmadu Bello Way, Jahi, Abuja.</p>
+        <p><strong>Phone:</strong> <a href="tel:+2348166678630">081 6667 8630</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@mcdreamconcept.ng">info@mcdreamconcept.ng</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Kaduna Office</h3>
+        <p><strong>Address:</strong> Shop 2, First Floor, 54 Complex, MM Square.</p>
+        <p><strong>Phone:</strong> <a href="tel:+23480186013870">080 1860 13870</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Kano Office</h3>
+        <p><strong>Address:</strong> 17 Niger Street, Opposite KEDCO Head Office.</p>
+        <p><strong>Phone:</strong> <a href="tel:+2347048468050">070 4846 8050</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Lokoja Office</h3>
+        <p><strong>Address:</strong> 17 Ado Ibrahim Road, Farec Premises, GRA Lokoja, PMB 1103.</p>
+        <p><strong>Phone:</strong> <a href="tel:+2348056530825">080 5653 0825</a></p>
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-wrapper">
+      <h2>Send Us a Message</h2>
+
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+
+
+</body>
+</html>

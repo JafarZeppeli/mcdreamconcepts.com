@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Investment &amp; Mortgage — McDream Concepts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <style>
+:root {
+  --pink-main: #e24a8d;
+  --pink-soft: rgba(226, 74, 141, 0.12);
+  --ink-dark: #0f172a;
+  --ink-muted: #475569;
+  --card-bg: #ffffff;
+}
+
+.page-header {
+  max-width: 1200px;
+  margin: 40px auto 10px;
+  padding: 44px 36px;
+  border-radius: 20px;
+  background:
+    radial-gradient(1200px 300px at top left, var(--pink-soft), transparent 60%),
+    linear-gradient(135deg, #ffffff, #faf7fb);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-header h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+}
+
+.page-header .lead {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+}
+
+/* ===== CONTENT WRAP ===== */
+.content-wrap {
+  max-width: 1200px;
+  margin: 50px auto 100px;
+  padding: 0 16px;
+}
+
+/* ===== GRID ===== */
+.bento {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 30px;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(226, 74, 141, 0.15);
+  pointer-events: none;
+}
+
+/* ===== ICON ROWS ===== */
+.icon-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.icon-row i {
+  font-size: 1.4rem;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--pink-soft), rgba(255,255,255,0.9));
+  color: var(--pink-main);
+  flex-shrink: 0;
+}
+
+/* ===== HEADINGS ===== */
+.card h2,
+.card h3 {
+  color: var(--ink-dark);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* ===== TEXT ===== */
+.card p,
+.steps p {
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* ===== STEPS ===== */
+.steps ol {
+  padding-left: 18px;
+}
+
+.steps li {
+  margin-bottom: 18px;
+}
+
+.steps strong {
+  color: var(--ink-dark);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink-main), #c93775);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(226, 74, 141, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--pink-main);
+  color: var(--pink-main);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--pink-soft);
+}
+
+/* ===== CTA ROW ===== */
+.cta {
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .page-header img {
+    margin: 0 auto;
+  }
+}
+header {
+    background: #D97A7E !important;  
+    color: #fff !important;
+}
+
+header a {
+    color: #fff !important;   
+}
+
+</style>
+
+</head>
+<body>
+
+ <header>
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo2.png" alt="Logo" />
+    </a>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+
+ <li class="dropdown-who">
+    <a href="#" class="dropdown-toggle">Who We Are</a><span class="arrow">▾</span></a>
+
+    <ul class="submenu">
+        <li><a href="about.html">About Us</a></li>
+    </ul>
+</li>
+
+
+      <!-- PROJECTS DROPDOWN -->
+    <li class="dropdown dropdown-projects">
+  <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+
+  <ul class="dropdown-menu">
+
+    <!-- Residential -->
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+
+      <ul class="dropdown-menu">
+
+        <!-- Abuja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
+            <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+            <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+            <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+            <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+            <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+            <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+            <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+            <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+            <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
+            <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+          </ul>
+        </li>
+
+        <!-- Kaduna -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
+            <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
+            <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
+          </ul>
+        </li>
+
+        <!-- Kano -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
+          </ul>
+        </li>
+
+        <!-- Lokoja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+   <li class="dropdown-submenu">
+  <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+  <ul class="dropdown-menu">
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+        </ul>
+      </li>
+
+  </ul>
+</li>
+
+    </ul>
+ <li class="dropdown-contact">
+  <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+
+  <ul class="submenu">
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="career.html">Agent/Career Registration</a></li>
+  </ul>
+</li>
+
+<a href="book-visit.html" class="book-btn">Book a Visit</a>
+
+  </nav>
+</header>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div>
+      <h1>Investment &amp; mortgage</h1>
+      <p class="lead">Invest in Your Future with Us at McDream Concepts Ltd</p>
+    </div>
+    <div style="text-align:right;">
+      <img src="investment.png" alt="Investment" style="width:120px;height:auto;">
+    </div>
+  </div>
+
+  <main class="content-wrap">
+    <div class="bento">
+
+
+      <div class="card">
+        <h2 style="margin-top:0;">Invest in Your Future with Us at McDream Concepts Ltd</h2>
+
+        <p>At McDream Concepts Limited, we offer real estate investment opportunities designed to help you build long-term wealth. Many of our projects are strategically designed with rental income in mind, allowing you to earn a steady cash flow while your property appreciates in value.</p>
+
+        <h3 style="margin-bottom:8px;">Why Invest in Real Estate with Us?</h3>
+
+        <div class="icon-row" aria-hidden="true">
+          <i class="fa-solid fa-chart-line"></i>
+          <div>
+            <h4 style="margin:0;font-size:1rem;">High Returns on Investment (ROI)</h4>
+            <p style="margin:6px 0 0 0;">Real estate is a proven method for wealth building, and McDream Concepts Limited is committed to offering high returns on investment. Our current and upcoming projects present lucrative opportunities for steady financial growth, whether you’re a seasoned investor or new to the market.</p>
+          </div>
+        </div>
+
+        <div class="icon-row" aria-hidden="true">
+          <i class="fa-solid fa-user-tie"></i>
+          <div>
+            <h4 style="margin:0;font-size:1rem;">Expertise and Experience</h4>
+            <p style="margin:6px 0 0 0;">Our team is made up of experienced real estate professionals with in-depth knowledge.We use our expertise to identify and develop projects with strong potential for high returns, ensuring your investment is in capable hands.</p>
+          </div>
+        </div>
+
+        <div class="icon-row" aria-hidden="true">
+          <i class="fa-solid fa-hand-holding-dollar"></i>
+          <div>
+            <h4 style="margin:0;font-size:1rem;">Financial Transparency</h4>
+            <p style="margin:6px 0 0 0;">We believe in complete transparency with our investors. You’ll receive clear insights into project costs, timelines, and expected returns, so you can invest with confidence and certainty about where your money is going.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:12px;">Invest with McDream Concepts Limited today and secure a prosperous future through smart, high-return real estate investments.</p>
+
+        <div style="margin-top:14px;">
+          <a class="btn btn-primary" href="contact.html"><i class="fa-solid fa-envelope" style="margin-right:8px"></i>Contact Us</a>
+          <a class="btn btn-outline" href="projects.html" style="margin-left:8px;"><i class="fa-solid fa-building" style="margin-right:8px"></i>View Projects</a>
+        </div>
+      </div>
+
+      <!-- Right column: Mortgage services — preserves the same step-by-step wording -->
+      <aside class="card">
+        <h3 style="margin-top:0;"><i class="fa-solid fa-house-crack" style="margin-right:8px;"></i> MORTGAGE SERVICES</h3>
+
+        <p>Acquiring Properties With Mortgage Services – Here’s How The Process Works:</p>
+
+        <div class="steps">
+          <ol>
+            <li>
+              <strong>1. Consultation</strong>
+              <p>The journey begins with a consultation with our experienced team. We’ll take the time to understand your financial situation, goals, and preferences to identify the mortgage options that best suit your needs.</p>
+            </li>
+
+            <li>
+              <strong>2. Pre-Approval</strong>
+              <p>Once we've reviewed your financial information, we’ll help you obtain pre-approval from our partner financial institutions. This gives you clarity on your budget and streamlines the purchasing process, ensuring you’re ready to move forward.</p>
+            </li>
+
+            <li>
+              <strong>3. Property Selection</strong>
+              <p>With pre-approval in hand, you can explore our curated portfolio of properties. Our team will guide you in selecting a property that aligns with your investment strategy and goals.</p>
+            </li>
+
+            <li>
+              <strong>4. Mortgage Application</strong>
+              <p>Once you’ve chosen a property, we’ll assist you in completing the mortgage application process. We’ll ensure all the necessary documentation is in order, making the application process as smooth as possible.</p>
+            </li>
+
+            <li>
+              <strong>5. Approval and Closing</strong>
+              <p>After your mortgage are approved, we’ll help you navigate the closing process, which includes property inspections and finalizing legal documentation. We’ll be by your side every step of the way to ensure a seamless transaction.</p>
+            </li>
+
+            <li>
+              <strong>6. Property Ownership</strong>
+              <p>Upon closing, you become the proud owner of the property. If your property is income-generating, you can start earning rental income right away.</p>
+            </li>
+
+            <li>
+              <strong>7. Investment Growth</strong>
+              <p>As time goes on, your property’s value is likely to appreciate, offering you the potential for a significant return on your investment.</p>
+            </li>
+          </ol>
+        </div>
+
+        <p style="margin-top:10px;">So, why wait? Contact McDREAM Concepts Limited today and take the first step toward building your dream home.</p>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="contact.html"><i class="fa-solid fa-phone" style="margin-right:8px"></i>Call Us</a>
+          <a class="btn btn-outline" href="mailto:mcdreamconceptsltd@gmail.com"><i class="fa-solid fa-envelope" style="margin-right:8px"></i>Email</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer (keeps your site attribution and links) -->
+  <footer style="border-top:1px solid #eee;padding:28px 0;background:#fafafa;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;">
+      <div>
+        <img src="logo2.png" alt="McDream" style="height:48px;display:block;">
+        <div style="margin-top:8px;color:#333;">First Floor Suite 2 Nusaiba Towers<br>Jahi FCT, Abuja</div>
+      </div>
+      <div style="text-align:right;min-width:220px;">
+        <div>+234 9166549239</div>
+        <div>mcdreamconceptsltd@gmail.com</div>
+        <div style="margin-top:8px;">
+          <a href="#" style="margin-right:10px;text-decoration:none;color:#0b74a6;">Facebook</a>
+          <a href="#" style="margin-right:10px;text-decoration:none;color:#0b74a6;">Twitter</a>
+          <a href="#" style="text-decoration:none;color:#0b74a6;">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1100px;margin:18px auto 0;color:#888;font-size:13px;">© 2023, POWERED BY McDREAM CONCEPTS LIMITED</div>
+  </footer>
+
+</body>
+</html>

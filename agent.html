@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Updates — McDream Concepts</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Hero / Banner */
+    .news-hero {
+      position: relative;
+      background: url('images/news3.jpg') center/cover no-repeat;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .news-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .news-hero .inner {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .news-hero h1 {
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+    .news-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* News content list */
+    .news-section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+    .news-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .news-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card-body h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #d97a7e;
+    }
+    .news-card-body p {
+      margin: 12px 0 18px;
+      color: #555;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .news-card-body a.read-more {
+      color: #d97a7e;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .news-card-body a.read-more:hover {
+      color: #ff4da6;
+    }
+
+    /* Pagination (or Load More) */
+    .pagination {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .pagination button {
+      background: #d97a7e;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .pagination button:hover {
+      background: #ff4da6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .news-hero h1 { font-size: 32px; }
+      .news-hero p { font-size: 16px; }
+      .news-card img { height: 160px; }
+    }
+    .hidden-news {
+  display: none;
+}
+
+header {
+    background: #D97A7E !important;  
+    color: #fff !important;
+}
+
+header a {
+    color: #fff !important;   
+}
+
+header .dropdown-menu,
+header .submenu {
+    background: #fff !important;
+    border-radius: 6px;
+}
+
+header .dropdown-menu a,
+header .submenu a {
+    color: #000 !important;         
+}
+
+header .dropdown-menu a:hover,
+header .submenu a:hover {
+    background: #ffe1ef !important;
+    color: #D97A7E !important;
+}
+
+
+header .arrow {
+    color: #fff !important;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+   <header>
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo2.png" alt="Logo" />
+    </a>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+
+ <li class="dropdown-who">
+    <a href="#" class="dropdown-toggle">Who We Are</a><span class="arrow">▾</span></a>
+
+    <ul class="submenu">
+        <li><a href="about.html">About Us</a></li>
+    </ul>
+</li>
+
+
+      <!-- PROJECTS DROPDOWN -->
+    <li class="dropdown dropdown-projects">
+  <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+
+  <ul class="dropdown-menu">
+
+    <!-- Residential -->
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+
+      <ul class="dropdown-menu">
+
+        <!-- Abuja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
+            <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+            <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+            <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+            <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+            <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+            <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+            <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+            <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+            <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
+            <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+          </ul>
+        </li>
+
+        <!-- Kaduna -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
+            <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
+            <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
+          </ul>
+        </li>
+
+        <!-- Kano -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
+          </ul>
+        </li>
+
+        <!-- Lokoja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+   <li class="dropdown-submenu">
+  <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+  <ul class="dropdown-menu">
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+        </ul>
+      </li>
+
+  </ul>
+</li>
+
+    </ul>
+ <li class="dropdown-contact">
+  <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+
+  <ul class="submenu">
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="career.html">Agent/Career Registration</a></li>
+  </ul>
+</li>
+
+<a href="book-visit.html" class="book-btn">Book a Visit</a>
+
+  </nav>
+</header>
+
+
+
+<!-- HERO -->
+<div class="agent-hero">
+  <h1>Agent & Career Registration</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="section">
+    <h2>Company Overview</h2>
+    <p>At McDream Concepts Ltd, we prioritize attracting the best talent and providing an environment for growth.</p>
+    <p>Our team advances through training, development, and long-term opportunities.</p>
+  </div>
+
+  <div class="boxes">
+    <div class="box">
+      <h3>Submit Your Details</h3>
+      <p>Register as an agent or apply for a career opening.</p>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option value="">Select Position</option>
+          <option value="agent">Agent</option>
+          <option value="career">Career</option>
+        </select>
+        <textarea placeholder="Additional Information"></textarea>
+        <button type="submit">Submit Details</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h3>Submit Your CV</h3>
+      <p>Upload your CV to apply directly for a position.</p>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="file" accept=".pdf,.doc,.docx" required>
+        <button type="submit">Upload CV</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 McDream Concepts. All Rights Reserved.
+</footer>
+
+</body>
+</html>

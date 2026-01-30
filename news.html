@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Updates — McDream Concepts</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Hero / Banner */
+    .news-hero {
+      position: relative;
+      background: url('images/news3.jpg') center/cover no-repeat;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .news-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .news-hero .inner {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    .news-hero h1 {
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+    .news-hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* News content list */
+    .news-section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+    .news-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .news-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card-body h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #d97a7e;
+    }
+    .news-card-body p {
+      margin: 12px 0 18px;
+      color: #555;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .news-card-body a.read-more {
+      color: #d97a7e;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .news-card-body a.read-more:hover {
+      color: #ff4da6;
+    }
+
+    /* Pagination (or Load More) */
+    .pagination {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .pagination button {
+      background: #d97a7e;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .pagination button:hover {
+      background: #ff4da6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .news-hero h1 { font-size: 32px; }
+      .news-hero p { font-size: 16px; }
+      .news-card img { height: 160px; }
+    }
+    .hidden-news {
+  display: none;
+}
+
+header {
+    background: #D97A7E !important;  
+    color: #fff !important;
+}
+
+header a {
+    color: #fff !important;   
+}
+
+/* Dropdown menus */
+header .dropdown-menu,
+header .submenu {
+    background: #fff !important;
+    border-radius: 6px;
+}
+
+header .dropdown-menu a,
+header .submenu a {
+    color: #000 !important;         
+}
+
+header .dropdown-menu a:hover,
+header .submenu a:hover {
+    background: #ffe1ef !important;
+    color: #D97A7E !important;
+}
+
+/* Fix arrow colors */
+header .arrow {
+    color: #fff !important;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+   <header>
+  <div class="brand">
+    <a href="index.html">
+      <img src="logo2.png" alt="Logo" />
+    </a>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+
+ <li class="dropdown-who">
+    <a href="#" class="dropdown-toggle">Who We Are</a><span class="arrow">▾</span></a>
+
+    <ul class="submenu">
+        <li><a href="about.html">About Us</a></li>
+    </ul>
+</li>
+
+
+      <!-- PROJECTS DROPDOWN -->
+    <li class="dropdown dropdown-projects">
+  <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+
+  <ul class="dropdown-menu">
+
+    <!-- Residential -->
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+
+      <ul class="dropdown-menu">
+
+        <!-- Abuja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
+            <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+            <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+            <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+            <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+            <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+            <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+            <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+            <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+            <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
+            <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+          </ul>
+        </li>
+
+        <!-- Kaduna -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
+            <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
+            <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
+          </ul>
+        </li>
+
+        <!-- Kano -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
+          </ul>
+        </li>
+
+        <!-- Lokoja -->
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+   <li class="dropdown-submenu">
+  <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+  <ul class="dropdown-menu">
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown-submenu">
+        <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+        </ul>
+      </li>
+
+  </ul>
+</li>
+
+    </ul>
+ <li class="dropdown-contact">
+  <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+
+  <ul class="submenu">
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="career.html">Agent/Career Registration</a></li>
+  </ul>
+</li>
+
+<a href="book-visit.html" class="book-btn">Book a Visit</a>
+
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="news-hero">
+    <div class="inner">
+      <h1>News & Updates</h1>
+      <p>Get the latest announcements, press releases, and company news from McDream Concepts.</p>
+    </div>
+  </section>
+
+  <!-- Main News Section -->
+  <div class="news-section">
+    <div class="news-list">
+
+  <div class="news-card">
+        <img src="mall.jpg" alt="TROPICANA MALL COMMISSIONING">
+        <div class="news-card-body">
+          <h2>The Power of Consistency: The Journey Behind Tropicana Mall, Kano</h2>
+          <p>what many once considered an impossible task now stands proudly at 17/19 Niger Street, Kano State — a landmark that reflects transformation, growth, and opportunity.
+Tropicana Mall is more than a building; it is a symbol of what focus, faith, and collaboration can achieve.
+On September 30, 2025, Tropicana Mall was officially commissioned, marking a significant milestone not only for McDream Concepts Ltd but for the people and economy of Kano State. The commissioning represents a new era of commerce, investment, and urban transformation in the heart of Kano.</p>
+          <a href="" target="_blank">Read More →</a>
+        </div>
+
+
+      <div class="news-card">
+        <img src="images/ball.jpeg" alt="McDream Wins BRC Football Championship">
+        <div class="news-card-body">
+          <h2>McDream Wins Big at BRC Real Estate Football Championship</h2>
+          <p>McDream Concept LTD won the BRC Real Estate Football Championship in August 2024, demonstrating outstanding teamwork and competitive spirit. This victory reflects our collaborative spirit and commitment.</p>
+          <a href="https://mcdreamconcept.ng/mcdream-concept-ltd-wins-big-at-brc-real-estate-football-championship/" class="read-more" target="_blank">Read More →</a>
+        </div>
+      </div>
+
+ 
+      <div class="news-card">
+        <img src="images/cf4.jpg" alt="Partnership Announcement">
+        <div class="news-card-body">
+          <h2>McDream Partners With New Business Communities</h2>
+          <p>McDream has announced a new partnership with business communities in Kano to foster innovation and economic development across the region.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+   
+      <div class="news-card">
+        <img src="images/cf3.jpg" alt="Year End Celebration">
+        <div class="news-card-body">
+          <h2>Year-End Celebration and Highlights</h2>
+          <p>McDream held a year-end event to celebrate milestones, thank its team, and outline plans for the coming year. The event featured awards and community announcements.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+
+
+  <div class="news-card">
+        <img src="images/nile.jpeg" alt="NILE UNIVERSITY CAREER DAY">
+        <div class="news-card-body">
+          <h2>NILE UNIVERSITY CAREER DAY</h2>
+          <p>We happily joined the NILE University Career Day in June 2023, our team talked to students about real estate investment. We wanted to show students that real estate is a good way to invest money.
+We talked about how it can help with money in the long run and how it’s stable. But we didn’t only talk about investing, we told students they can also have jobs in real estate.
+There are many kinds of jobs like designing, marketing, and managing.
+Our team shared stories about their jobs and how exciting they are, we hope that by being at NILE University’s Career day we made students think about real estate. We want them to see the chances for good jobs and investing in the future.
+Thanks to NILE University for having us, and thanks to all the students who talked to us. We’ll keep making great homes and helping young people in real estate.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- Load More / Pagination -->
+   <div class="news-card hidden-news">
+  <img src="images/news4.jpg">
+  <div class="news-card-body">
+    <h2>Another News Title</h2>
+    <p>This is an additional news card that will show when Load More is clicked.</p>
+    <a href="#" class="read-more">Read More →</a>
+  </div>
+</div>
+
+
+ <script>
+  document.getElementById('loadMoreNews').addEventListener('click', function () {
+    document.querySelectorAll('.hidden-news').forEach(function(card) {
+      card.style.display = 'flex';
+    });
+
+    // Hide Load More button after revealing
+    this.style.display = 'none';
+  });
+</script>
+
+
+</body>
+</html>
