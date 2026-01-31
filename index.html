@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>McDream Concepts — Home</title>
@@ -23,6 +24,12 @@
 
 
    <header> 
+     <button class="menu-toggle" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
   <div class="brand">
     <a href="index.html">
       <img src="logo2.png" alt="Logo" />
@@ -532,6 +539,15 @@ window.addEventListener("scroll", () => {
 });
 </script>
 
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.getElementById("main-nav");
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-open");
+    menuToggle.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
