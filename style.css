@@ -2699,3 +2699,104 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
+
+
+@media (max-width: 900px) {
+
+  /* ---- GLOBAL SAFETY ---- */
+  html, body {
+    width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header img,
+  .logo {
+    max-height: 42px;
+  }
+
+  /* ---- HAMBURGER ---- */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 11000;
+  }
+
+  .menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: 0.3s ease;
+  }
+
+  /* ---- MENU OPEN ANIMATION ---- */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ---- FULLSCREEN NAV OVERLAY ---- */
+  nav#main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(14px);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 10000;
+    padding-top: 90px;
+  }
+
+  nav#main-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  /* ---- MENU LIST ---- */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 0 28px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 19px;
+    padding: 12px 0;
+    display: block;
+    width: 100%;
+  }
+
+  /* ---- CTA BUTTON ---- */
+  .book-btn {
+    margin: 40px 28px 0;
+    width: calc(100% - 56px);
+    text-align: center;
+  }
+}
