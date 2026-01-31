@@ -2475,3 +2475,151 @@ nav ul {
 header.scrolled .brand img {
     height: 48px !important;
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS – SAFE ADDITIONS
+   ========================================= */
+
+.menu-toggle {
+  display: none;
+  position: absolute;
+  right: 25px;
+  top: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: #ffffff;
+  transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ---------- MOBILE NAVIGATION ---------- */
+@media (max-width: 900px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav#main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+    background: rgba(25, 25, 25, 0.96);
+    backdrop-filter: blur(10px);
+    padding-top: 120px;
+    transition: right 0.35s ease;
+    z-index: 10000;
+    flex-direction: column;
+  }
+
+  nav#main-nav.nav-open {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 22px;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  nav ul li a {
+    font-size: 17px;
+  }
+
+  .book-btn {
+    margin: 30px;
+  }
+}
+
+/* ---------- HERO & SEARCH (MOBILE FIX) ---------- */
+@media (max-width: 600px) {
+
+  .hero-center h1 {
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
+  .search-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+}
+
+/* ---------- SERVICES, FEATURED, STATS ---------- */
+@media (max-width: 768px) {
+
+  .services,
+  .featured-grid,
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .feat-card {
+    height: 300px;
+  }
+}
+
+/* ---------- NEWSLETTER ---------- */
+@media (max-width: 768px) {
+
+  .newsletter-section {
+    flex-direction: column;
+    padding: 50px 6%;
+  }
+
+  .newsletter-right {
+    width: 100%;
+  }
+
+  .newsletter-left h2 {
+    font-size: 30px;
+  }
+}
+
+/* ---------- FOOTER ---------- */
+@media (max-width: 700px) {
+
+  .modern-footer {
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
