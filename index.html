@@ -556,6 +556,24 @@ window.addEventListener("scroll", () => {
     menuToggle.classList.toggle("active");
   });
 </script>
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('main-nav');
+  const dropdowns = document.querySelectorAll('.dropdown-submenu > a');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  dropdowns.forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        link.parentElement.classList.toggle('open');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
