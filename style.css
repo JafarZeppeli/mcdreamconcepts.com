@@ -2800,3 +2800,80 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
+/* =========================
+   MOBILE NAV FIX
+========================= */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 900px) {
+
+  header {
+    padding: 12px 18px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    padding-top: 90px;
+    transition: right 0.35s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 18px;
+    padding: 0 25px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 12px 0;
+    display: block;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1000;
+  }
+
+  /* Dropdowns on mobile */
+  .dropdown-menu {
+    position: static;
+    background: none;
+    box-shadow: none;
+    display: none;
+    padding-left: 15px;
+  }
+
+  .dropdown-submenu.open > .dropdown-menu {
+    display: block;
+  }
+
+  .arrow {
+    float: right;
+  }
+}
