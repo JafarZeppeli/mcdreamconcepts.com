@@ -6,33 +6,32 @@
   <title>News & Updates — McDream Concepts</title>
   <link rel="stylesheet" href="style.css" />
 <style>
-/* --------------------
-   GLOBAL RESET & TYPE
---------------------- */
+/* =========================
+   GLOBAL FOUNDATION
+========================= */
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   margin: 0;
-  background: #fafafa;
-  color: #333;
-  line-height: 1.75;
+  font-family: "Poppins", sans-serif;
+  background: #f7f7f7;
+  color: #2f2f2f;
+  line-height: 1.85;
 }
 
-/* --------------------
-   HERO / BANNER
---------------------- */
+/* =========================
+   HERO / BANNER (ELEGANT)
+========================= */
 .news-hero {
   position: relative;
-  background: url('images/news3.jpg') center/cover no-repeat;
-  height: 460px;
+  height: 420px;
+  background: url("images/news3.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
 }
 
 .news-hero::after {
@@ -40,7 +39,7 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.6),
     rgba(0,0,0,0.35)
   );
 }
@@ -48,188 +47,211 @@ body {
 .news-hero .inner {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 720px;
   padding: 0 24px;
 }
 
 .news-hero h1 {
   font-size: 44px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   margin-bottom: 14px;
-  letter-spacing: 0.5px;
+  color: #fff;
 }
 
 .news-hero p {
-  font-size: 18px;
-  opacity: 0.92;
+  font-size: 17px;
+  font-weight: 400;
+  opacity: 0.9;
   margin: 0;
+  color: #f3f3f3;
 }
 
-/* --------------------
-   NEWS SECTION
---------------------- */
+/* =========================
+   NEWS LAYOUT
+========================= */
 .news-section {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 20px;
+  max-width: 1150px;
+  margin: 90px auto;
+  padding: 0 22px;
 }
 
 .news-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 60px;
 }
 
-/* --------------------
-   NEWS CARD
---------------------- */
+/* =========================
+   NEWS CARD (PREMIUM)
+========================= */
 .news-card {
-  background: #fff;
-  border-radius: 18px;
+  background: #ffffff;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .news-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 55px rgba(0,0,0,0.14);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.14);
 }
 
 .news-card img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
 }
 
 .news-card-body {
-  padding: 26px 26px 30px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .news-card-body h2 {
-  font-size: 22px;
+  font-size: 21px;
+  font-weight: 600;
+  color: #1f1f1f;
   margin: 0;
-  color: #d97a7e;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .news-card-body p {
   font-size: 15.5px;
   color: #555;
-  line-height: 1.75;
   margin: 0;
+  line-height: 1.8;
   flex-grow: 1;
 }
 
+/* Elegant CTA */
 .news-card-body a.read-more {
-  align-self: flex-start;
+  margin-top: 6px;
+  font-size: 14px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: #d97a7e;
   text-decoration: none;
-  margin-top: 8px;
-  transition: color 0.25s ease;
+  align-self: flex-start;
+  position: relative;
 }
 
-.news-card-body a.read-more:hover {
-  color: #ff4da6;
+.news-card-body a.read-more::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #d97a7e;
+  transition: width 0.3s ease;
+  margin-top: 4px;
 }
 
-/* --------------------
+.news-card-body a.read-more:hover::after {
+  width: 100%;
+}
+
+/* =========================
    PAGINATION
---------------------- */
+========================= */
 .pagination {
-  margin-top: 80px;
+  margin-top: 90px;
   text-align: center;
 }
 
 .pagination button {
-  background: #d97a7e;
-  color: #fff;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
+  background: transparent;
+  border: 1.5px solid #d97a7e;
+  color: #d97a7e;
+  padding: 14px 36px;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 40px;
   cursor: pointer;
-  transition: transform 0.25s ease, background 0.25s ease;
+  transition: all 0.35s ease;
 }
 
 .pagination button:hover {
-  background: #ff4da6;
-  transform: translateY(-2px);
+  background: #d97a7e;
+  color: #fff;
 }
 
-/* --------------------
+/* =========================
    HEADER OVERRIDES
---------------------- */
+========================= */
 header {
-  background: #D97A7E !important;
-  color: #fff !important;
+  background: #d97a7e !important;
 }
 
 header a {
   color: #fff !important;
+  font-weight: 500;
 }
 
 header .dropdown-menu,
 header .submenu {
-  background: #fff !important;
-  border-radius: 10px;
-  padding: 8px 0;
+  background: #ffffff !important;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
 }
 
 header .dropdown-menu a,
 header .submenu a {
-  color: #000 !important;
-  padding: 10px 18px;
+  color: #1f1f1f !important;
+  padding: 10px 22px;
+  font-size: 14px;
 }
 
 header .dropdown-menu a:hover,
 header .submenu a:hover {
-  background: #ffe1ef !important;
-  color: #D97A7E !important;
+  background: #f7f0f2 !important;
+  color: #d97a7e !important;
 }
 
 header .arrow {
   color: #fff !important;
 }
 
-/* --------------------
+/* =========================
    UTILITIES
---------------------- */
+========================= */
 .hidden-news {
   display: none;
 }
 
-/* --------------------
-   RESPONSIVE
---------------------- */
+/* =========================
+   MOBILE REFINEMENT
+========================= */
 @media (max-width: 768px) {
   .news-hero {
-    height: 360px;
+    height: 340px;
   }
 
   .news-hero h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  .news-hero p {
-    font-size: 16px;
+  .news-section {
+    margin: 60px auto;
   }
 
   .news-card img {
     height: 180px;
   }
 
-  .news-section {
-    margin: 60px auto;
+  .news-card-body {
+    padding: 26px;
   }
 }
 </style>
+
 
 </head>
 <body>
