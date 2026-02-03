@@ -2830,17 +2830,3 @@ li.open > .submenu {
     display: block !important;
 }
 
-/* Ensure submenu positioning works */
-.dropdown-menu,
-.dropdown-content,
-.submenu {
-    position: absolute;
-    z-index: 999999;
-}
-
-/* Prevent accidental hover gaps */
-.dropdown-menu *,
-.dropdown-content *,
-.submenu * {
-    pointer-events: auto;
-}
