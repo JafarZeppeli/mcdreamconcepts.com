@@ -1,12 +1,6 @@
 // script.js — robust delegated dropdown (overwrite your current file)
 console.log("Dropdown JS Loaded!");
 
-// script.js — robust delegated dropdown (overwrite your current file)
-console.log("Dropdown JS Loaded!");
-
-// script.js — robust delegated dropdown (overwrite your current file)
-console.log("Dropdown JS Loaded!");
-
 document.addEventListener("DOMContentLoaded", () => {
   const toggles = document.querySelectorAll(".dropdown-toggle");
 
@@ -46,19 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.closest && e.target.closest("nav")) return;
     document.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
   });
-
-  // Esc key closes menus
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") document.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
-  });
-});
-
-
-  // Esc key closes menus
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") document.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
-  });
-});
 
   // Esc key closes menus
   document.addEventListener("keydown", (e) => {
