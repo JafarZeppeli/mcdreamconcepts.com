@@ -2800,27 +2800,47 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
-/* Hide all dropdowns by default */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #fff;
-    min-width: 220px;
-    z-index: 1000;
-}
+/* =========================================
+   🔒 FINAL DROPDOWN OVERRIDE — JS ONLY
+   (DO NOT MOVE — MUST BE LAST)
+========================================= */
 
-/* ONLY show the immediate child menu */
+/* Kill ALL hover-based dropdown opening */
 .dropdown:hover > .dropdown-menu,
-.dropdown-submenu:hover > .dropdown-menu {
-    display: block;
+.dropdown:hover > .dropdown-content,
+.dropdown-submenu:hover > .dropdown-menu,
+.dropdown-submenu:hover > .dropdown-content,
+nav ul li:hover > ul {
+    display: none !important;
 }
 
-/* Submenu positioning */
-.dropdown-submenu {
-    position: relative;
+/* Hide all menus by default */
+.dropdown-menu,
+.dropdown-content,
+nav ul ul,
+.submenu {
+    display: none !important;
 }
 
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 100%;
+/* JS-controlled opening ONLY */
+li.open > .dropdown-menu,
+li.open > .dropdown-content,
+li.open > ul,
+li.open > .submenu {
+    display: block !important;
+}
+
+/* Ensure submenu positioning works */
+.dropdown-menu,
+.dropdown-content,
+.submenu {
+    position: absolute;
+    z-index: 999999;
+}
+
+/* Prevent accidental hover gaps */
+.dropdown-menu *,
+.dropdown-content *,
+.submenu * {
+    pointer-events: auto;
 }
