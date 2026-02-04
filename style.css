@@ -2794,3 +2794,46 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
+.about-section {
+  display: flex;
+  width: 100%;
+  min-height: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-text {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .about-image, .about-text {
+    flex: none;
+    width: 100%;
+  }
+  .about-image img {
+    height: 300px;
+  }
+}
