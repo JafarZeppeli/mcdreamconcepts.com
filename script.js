@@ -70,3 +70,24 @@ document.querySelectorAll('#mobile-menu .dropdown-toggle').forEach(item => {
     item.parentElement.classList.toggle('active');
   });
 });
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggle = document.createElement("div");
+  toggle.classList.add("menu-toggle");
+  toggle.textContent = "☰ MENU";
+  document.getElementById("main-nav").insertBefore(toggle, document.getElementById("main-nav").firstChild);
+
+  const navUl = document.querySelector("#main-nav ul");
+
+  toggle.addEventListener("click", function() {
+    navUl.style.display = navUl.style.display === "flex" ? "none" : "flex";
+  });
+
+  document.querySelectorAll("#main-nav li.dropdown > a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      link.parentElement.classList.toggle("open");
+    });
+  });
+});
+</script>
