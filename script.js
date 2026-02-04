@@ -46,3 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") document.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
   });
 });
+function toggleMenu() {
+  const menu = document.getElementById("mobile-menu");
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+// Toggle dropdowns
+document.querySelectorAll('#mobile-menu .dropdown-toggle').forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    item.parentElement.classList.toggle('active');
+  });
+});
