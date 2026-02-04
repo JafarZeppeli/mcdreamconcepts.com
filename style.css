@@ -2943,3 +2943,51 @@ header.scrolled .brand img {
     display: flex;
   }
 }
+/* Desktop: show full menu, hide toggle button */
+.menu-toggle {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  #mobile-menu {
+    display: none; /* hidden by default on mobile */
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  #mobile-menu li {
+    width: 100%;
+  }
+
+  #mobile-menu li a {
+    display: block;
+    padding: 10px 20px;
+  }
+
+  /* Nested dropdowns */
+  #mobile-menu li ul.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    padding-left: 15px;
+  }
+
+  #mobile-menu li.active > ul.dropdown-menu {
+    display: flex;
+  }
+}
