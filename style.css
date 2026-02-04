@@ -2822,10 +2822,17 @@ header.scrolled .brand img {
   object-fit: cover;
   display: block;
 }
-/* MOBILE FIX — allows phone screen to move naturally */
+/* MOBILE SCROLL UNLOCK — does NOT affect desktop */
 @media (max-width: 768px) {
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
+  body {
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+
+  .section,
+  section {
+    height: auto !important;
+    min-height: auto !important;
   }
 }
