@@ -2822,17 +2822,4 @@ header.scrolled .brand img {
   object-fit: cover;
   display: block;
 }
-/* MOBILE SCROLL UNLOCK — does NOT affect desktop */
-@media (max-width: 768px) {
-  body {
-    min-height: 100vh !important;
-    height: auto !important;
-    overflow-y: visible !important;
-  }
 
-  .section,
-  section {
-    height: auto !important;
-    min-height: auto !important;
-  }
-}
