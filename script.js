@@ -46,28 +46,3 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") document.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
   });
 });
-/* ===== MOBILE DROPDOWN FIX ===== */
-@media (max-width: 768px) {
-
-  nav ul .dropdown-menu {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-  }
-
-  nav ul .dropdown-submenu > .dropdown-menu {
-    display: none;
-  }
-
-  nav ul .dropdown-submenu.open > .dropdown-menu {
-    display: block;
-  }
-
-  nav ul .dropdown-toggle {
-    pointer-events: auto;
-  }
-
-  nav ul .arrow {
-    float: right;
-  }
-}
