@@ -2904,3 +2904,45 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
+/* ===== MOBILE MENU FIX ===== */
+@media (max-width: 768px) {
+
+  /* Hide nav by default on mobile */
+  #main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    padding: 100px 20px 30px;
+    transition: right 0.35s ease;
+    z-index: 2000;
+    display: block; /* IMPORTANT */
+  }
+
+  /* Show when open */
+  #main-nav.open {
+    right: 0;
+  }
+
+  /* Stack items vertically */
+  #main-nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Disable hover dropdown behavior */
+  #main-nav .dropdown-menu,
+  #main-nav .submenu {
+    display: none;
+    position: static;
+  }
+
+  /* Accordion open */
+  #main-nav li.open > .dropdown-menu,
+  #main-nav li.open > .submenu {
+    display: block;
+  }
+}
