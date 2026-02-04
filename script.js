@@ -58,3 +58,15 @@ document.querySelectorAll('#mobile-menu .dropdown-toggle').forEach(item => {
     item.parentElement.classList.toggle('active');
   });
 });
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+  const menu = document.getElementById('mobile-menu');
+  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+});
+
+// Toggle nested dropdowns
+document.querySelectorAll('#mobile-menu .dropdown-toggle').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    item.parentElement.classList.toggle('active');
+  });
+});
