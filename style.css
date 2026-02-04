@@ -2889,3 +2889,57 @@ header.scrolled .brand img {
 #main-nav > ul::-webkit-scrollbar {
   display: none;
 }
+/* Hide menu by default on mobile */
+#mobile-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #mobile-menu {
+    display: none; /* hide menu initially */
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  #mobile-menu li {
+    width: 100%;
+  }
+
+  #mobile-menu li a {
+    display: block;
+    padding: 10px 20px;
+  }
+
+  /* Nested dropdowns */
+  #mobile-menu li ul.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    padding-left: 15px;
+  }
+
+  #mobile-menu li.active > ul.dropdown-menu {
+    display: flex;
+  }
+}
