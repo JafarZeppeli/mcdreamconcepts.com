@@ -2903,3 +2903,50 @@ header.scrolled .brand img {
     text-align: center;
   }
 }
+/* =========================
+   MOBILE MENU – FINAL COLORS
+   ========================= */
+@media (max-width: 768px) {
+
+  /* Hamburger icon */
+  .menu-toggle span {
+    background: #D97A7E;
+  }
+
+  /* Menu panel background */
+  #main-nav {
+    background: #fff;
+  }
+
+  /* ALL menu item containers */
+  #main-nav a {
+    background: #D97A7E;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /* Dropdown arrows */
+  #main-nav .arrow {
+    color: #ffffff;
+  }
+
+  /* Nested dropdown items */
+  #main-nav li.mobile-open > .dropdown-menu a,
+  #main-nav li.mobile-open > .submenu a {
+    background: #D97A7E;
+  }
+
+  /* BOOK A VISIT – special styling */
+  #main-nav .book-btn {
+    background: #000000;
+    color: #D97A7E;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+
+  /* Improve touch spacing */
+  #main-nav a,
+  #main-nav .book-btn {
+    padding: 14px;
+  }
+}
