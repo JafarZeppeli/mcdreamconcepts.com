@@ -1,4 +1,4 @@
-<!-- force rebuild -->
+ <!-- force rebuild -->
 <!doctype html>
 <html lang="en">   
 <head>
@@ -586,6 +586,31 @@ window.addEventListener("scroll", () => {
   });
 
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.getElementById("main-nav");
+
+  // Open / close main menu
+  toggle.addEventListener("click", function () {
+    nav.classList.toggle("mobile-open");
+    document.body.style.overflow =
+      nav.classList.contains("mobile-open") ? "hidden" : "";
+  });
+
+  // Mobile dropdowns (accordion)
+  document.querySelectorAll("#main-nav .dropdown-toggle")
+    .forEach(link => {
+      link.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle("mobile-open");
+        }
+      });
+    });
+
+});
+</script>
 </body>
 </html>
