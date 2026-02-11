@@ -3027,3 +3027,45 @@ header.scrolled .brand img {
   }
 
 }
+
+@media (max-width: 768px) {
+
+  /* Main project title */
+  .project-hero h1,
+  .section h1 {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  /* Section headings */
+  .section h2 {
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  /* Sub-headings */
+  .section h3 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 10px;
+  }
+
+  /* Paragraph text */
+  .section p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  /* Improve spacing between sections */
+  .section {
+    padding: 50px 20px !important;
+  }
+
+}
