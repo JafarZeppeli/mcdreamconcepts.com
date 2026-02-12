@@ -625,8 +625,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
- <script>
-document.getElementById("searchBtn").addEventListener("click", function () {
+<script>
+document.getElementById("searchBtn").addEventListener("click", function (e) {
+
+  e.preventDefault(); // stop form refresh if inside form
 
   const query = document.getElementById("searchInput")
                 .value
@@ -647,14 +649,23 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     "bungalow": "/Projects/lokoja/bungalow-city.html"
   };
 
-  if (routes[query]) {
-    window.location.href = routes[query];
-  } else {
+  let found = false;
+
+  for (let key in routes) {
+    if (query.includes(key)) {
+      window.location.href = routes[key];
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
     alert("Project not found. Please check spelling.");
   }
 
 });
 </script>
+
 
 </body>
 </html>
