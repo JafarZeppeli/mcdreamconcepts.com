@@ -142,11 +142,27 @@
 
 <div class="search-wrap">
   <div class="search-label">McDream</div>
-  <div class="search-box">
-    <input class="search-input" id="searchInput" type="text" placeholder="Search Our Exceptional Homes">
-    <button id="searchBtn" class="search-button" type="button">SEARCH</button>
 
-  </div>
+  <form class="search-box"
+        action="https://www.google.com/search"
+        method="GET"
+        target="_blank">
+
+    <input type="hidden" name="sitesearch" value="mcdreamconcepts.com">
+
+    <input class="search-input"
+           type="text"
+           name="q"
+           placeholder="Search Our Exceptional Homes"
+           required>
+
+    <button class="search-button" type="submit">
+      SEARCH
+    </button>
+
+  </form>
+</div>
+
 </div>
 
 
