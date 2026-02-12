@@ -142,18 +142,25 @@
 
 <div class="search-wrap">
   <div class="search-label">McDream</div>
-  <div class="search-box">
+
+  <div class="search-box" style="position:relative;">
     <input class="search-input"
            id="searchInput"
            type="text"
-           placeholder="Search Our Exceptional Homes">
+           placeholder="Search Our Exceptional Homes"
+           autocomplete="off">
 
     <button id="searchBtn"
             class="search-button"
             type="button">
       SEARCH
     </button>
+
+    <div id="suggestions" class="search-suggestions"></div>
+    <div id="searchMessage" class="search-message"></div>
   </div>
+</div>
+
 </div>
 
 
