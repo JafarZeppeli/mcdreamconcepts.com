@@ -163,6 +163,8 @@
 
 </div>
 
+</div>
+
 
 </div>
 
@@ -633,45 +635,72 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-document.getElementById("searchBtn").addEventListener("click", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
 
-  e.preventDefault(); // stop form refresh if inside form
-
-  const query = document.getElementById("searchInput")
-                .value
-                .toLowerCase()
-                .trim();
-
-  const routes = {
-    "azuza": "/Projects/commercial/Abuja/Azuza.html",
-    "mariam musa": "/Projects/kano/mariam-musa-estate.html",
-    "mariam": "/Projects/kano/mariam-musa-estate.html",
-    "azalea": "/Projects/abuja/azalea-estate-durumi.html",
-    "calytrix": "/Projects/abuja/calytrix-estate-1-2.html",
-    "camellia": "/Projects/abuja/camellia-estate-1.html",
-    "rhoswen": "/Projects/abuja/rhoswen-estate.html",
-    "salix": "/Projects/abuja/salix-estate.html",
-    "sen gaya": "/Projects/abuja/sen-gaya-estate.html",
-    "tropicana": "/Projects/commercial/kano/tropicana.html",
-    "bungalow": "/Projects/lokoja/bungalow-city.html"
+  const projects = {
+    "azuza plaza": "/Projects/commercial/Abuja/Azuza.html",
+    "mariam musa estate": "/Projects/kano/mariam-musa-estate.html",
+    "azalea smart city": "/Projects/abuja/azalea-estate-durumi.html",
+    "calytrix estate": "/Projects/abuja/calytrix-estate-1-2.html",
+    "camellia estate": "/Projects/abuja/camellia-estate-1.html",
+    "rhoswen estate": "/Projects/abuja/rhoswen-estate.html",
+    "salix estate": "/Projects/abuja/salix-estate.html",
+    "sen gaya estate": "/Projects/abuja/sen-gaya-estate.html",
+    "tropicana mall": "/Projects/commercial/kano/tropicana.html",
+    "bungalow city": "/Projects/lokoja/bungalow-city.html"
   };
 
-  let found = false;
+  const input = document.getElementById("searchInput");
+  const button = document.getElementById("searchBtn");
+  const suggestions = document.getElementById("suggestions");
+  const message = document.getElementById("searchMessage");
 
-  for (let key in routes) {
-    if (query.includes(key)) {
-      window.location.href = routes[key];
-      found = true;
-      break;
+  function searchProject() {
+    const query = input.value.toLowerCase().trim();
+    message.textContent = "";
+
+    for (let key in projects) {
+      if (key.includes(query) && query !== "") {
+        window.location.href = projects[key];
+        return;
+      }
     }
+
+    message.textContent = "No matching estate found.";
   }
 
-  if (!found) {
-    alert("Project not found. Please check spelling.");
-  }
+  button.addEventListener("click", searchProject);
+
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchProject();
+    }
+  });
+
+  input.addEventListener("input", function() {
+    const query = input.value.toLowerCase();
+    suggestions.innerHTML = "";
+    suggestions.style.display = "none";
+
+    if (!query) return;
+
+    for (let key in projects) {
+      if (key.includes(query)) {
+        const div = document.createElement("div");
+        div.textContent = key.replace(/\b\w/g, l => l.toUpperCase());
+        div.onclick = function() {
+          window.location.href = projects[key];
+        };
+        suggestions.appendChild(div);
+        suggestions.style.display = "block";
+      }
+    }
+  });
 
 });
 </script>
+
 
 
 </body>
