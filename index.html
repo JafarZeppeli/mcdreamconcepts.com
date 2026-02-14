@@ -597,50 +597,45 @@ window.addEventListener("scroll", () => {
     }
 });
 </script>
- 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+
+ <script>
+ document.addEventListener("DOMContentLoaded", function () {
 
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.getElementById("main-nav");
 
-  // Open / close main mobile menu
+  // Open / close main menu
   toggle.addEventListener("click", function () {
     nav.classList.toggle("mobile-open");
-    toggle.classList.toggle("active");
-
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = 
+    document.body.style.overflow =
       nav.classList.contains("mobile-open") ? "hidden" : "";
   });
 
-  // Handle mobile accordion dropdowns
-  const dropdownLinks = document.querySelectorAll("#main-nav .dropdown-toggle");
-
-  dropdownLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-
-        const parentLi = this.parentElement;
-
-        // Close all sibling dropdowns
-        dropdownLinks.forEach(other => {
-          if (other !== this) {
-            other.parentElement.classList.remove("mobile-open");
-          }
-        });
-
-        // Toggle this dropdown
-        parentLi.classList.toggle("mobile-open");
-      }
-
+  // Mobile dropdowns (accordion)
+  document.querySelectorAll("#main-nav .dropdown-toggle")
+    .forEach(link => {
+      link.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle("mobile-open");
+        }
+      });
     });
-  });
 
 });
+
+        </script>
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.getElementById("main-nav");
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("nav-open");
+    menuToggle.classList.toggle("active");
+  });
+
 </script>
+
  
 <script>
 document.addEventListener("DOMContentLoaded", function () {
