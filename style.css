@@ -3069,37 +3069,3 @@ header.scrolled .brand img {
   }
 
 }
-/* MOBILE NAV SMOOTH OPEN */
-#main-nav {
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-
-#main-nav.mobile-open {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Smooth dropdown animation */
-#main-nav .dropdown-menu {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-
-#main-nav li.mobile-open > .dropdown-menu {
-  max-height: 600px; /* enough for nested items */
-}
-
-/* Arrow rotation animation */
-#main-nav .arrow {
-  transition: transform 0.3s ease;
-}
-
-#main-nav li.mobile-open > a .arrow {
-  transform: rotate(90deg);
-}
-
-/* Clean spacing */
-#main-nav ul li {
-  padding: 10px 0;
-}
