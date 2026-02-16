@@ -621,68 +621,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.getElementById("main-nav");
-
-  if (!menuToggle || !nav) return;
-
-  // ----- Hamburger Toggle -----
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("mobile-open");
-    menuToggle.classList.toggle("active");
-    document.body.style.overflow = nav.classList.contains("mobile-open") ? "hidden" : "";
-  });
-
-  // ----- Mobile Submenu Accordion -----
-  nav.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-    toggle.addEventListener("click", e => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = toggle.parentElement;
-
-        // Close other open submenus at same level
-        parent.parentElement.querySelectorAll(":scope > .dropdown-submenu.mobile-open")
-          .forEach(item => {
-            if (item !== parent) item.classList.remove("mobile-open");
-          });
-
-        parent.classList.toggle("mobile-open");
-      }
-    });
-  });
-
-  // ----- Desktop Hover Dropdown -----
-  function setupDesktopHover() {
-    nav.querySelectorAll(".dropdown").forEach(item => {
-      item.addEventListener("mouseenter", () => item.classList.add("open"));
-      item.addEventListener("mouseleave", () => item.classList.remove("open"));
-    });
-  }
-
-  if (window.innerWidth > 768) setupDesktopHover();
-
-  // Re-setup on window resize
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      nav.classList.remove("mobile-open");
-      menuToggle.classList.remove("active");
-      document.body.style.overflow = "";
-      setupDesktopHover();
-    } else {
-      nav.querySelectorAll(".dropdown").forEach(item => item.classList.remove("open"));
-    }
-  });
-
-  // ----- Smooth Dropdown Animations (optional premium look) -----
-  nav.querySelectorAll(".dropdown-menu").forEach(menu => {
-    menu.style.transition = "all 0.3s ease";
-  });
-});
-
-
-
  
 </script>
 
