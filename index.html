@@ -420,68 +420,10 @@
   </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const counters = document.querySelectorAll(".stat .num");
-
-  counters.forEach(counter => {
-    let target = parseInt(counter.innerText.replace("+",""));
-    let duration = 2000; // 2 seconds total animation (slow + smooth)
-    let frameRate = 60; 
-    let totalFrames = Math.round(duration / (1000 / frameRate));
-    let currentFrame = 0;
-
-    function updateCounter() {
-      currentFrame++;
-      let progress = currentFrame / totalFrames;
-      let value = Math.floor(progress * target);
-
-      if (value >= target) {
-        counter.innerText = target + "+";
-      } else {
-        counter.innerText = value + "+";
-        requestAnimationFrame(updateCounter);
-      }
-    }
-
-    updateCounter();
-  });
-});
-</script>
 
 <script src="script.js"></script>
 
-<script>
-// UNIVERSAL FIX — works even if other JS fails
-window.addEventListener("DOMContentLoaded", () => {
 
-  const btn = document.querySelector("#searchBtn");
-  const input = document.querySelector("#searchInput");
-
-  if (!btn) { console.error("Missing #searchBtn"); return; }
-  if (!input) { console.error("Missing #searchInput"); return; }
-
-  btn.onclick = () => {
-    const query = input.value.toLowerCase().trim();
-    const pages = {
-        "abuja": "projects/abuja/azalea-estate-durumi.html",
-        "kano": "projects/kano/mariam-musa-estate.html",
-        "lagos": "projects/commercial/lagos/oxygen.html",
-        "kaduna": "projects/kaduna/rabah-road.html",
-        "lokoja": "projects/lokoja/bungalow-city.html",
-        "calytrix": "projects/abuja/calytrix-estate-1-2.html",
-        "camellia": "projects/abuja/camellia-estate-1.html",
-        "salix": "projects/abuja/salix-estate.html",
-        "rhoswen": "projects/abuja/rhoswen-estate.html",
-        "quesnelia": "projects/abuja/quesnelia-apartments.html"
-    };
-
-    let found = Object.keys(pages).find(key => query.includes(key));
-    if (found) window.location.href = pages[found];
-    else alert("No matching estate found.");
-  };
-});
-</script>
 <script>
 // Counter function
 function animateCounter(id, end, duration) {
@@ -574,16 +516,7 @@ window.addEventListener("scroll", () => {
 });
 </script>
  
-<script>
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.getElementById("main-nav");
 
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("nav-open");
-    menuToggle.classList.toggle("active");
-  });
-
-</script>
  <script>
  document.addEventListener("DOMContentLoaded", function () {
 
