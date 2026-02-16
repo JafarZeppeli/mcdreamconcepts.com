@@ -621,6 +621,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
+ // Desktop dropdown hover
+if (window.innerWidth > 768) {
+  document.querySelectorAll("#main-nav .dropdown").forEach(item => {
+    item.addEventListener("mouseenter", () => item.classList.add("open"));
+    item.addEventListener("mouseleave", () => item.classList.remove("open"));
+  });
+}
+
 </script>
 
 
