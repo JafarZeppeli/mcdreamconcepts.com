@@ -3076,3 +3076,13 @@ header.scrolled .brand img {
 .dropdown.open > .dropdown-menu {
   display: block;
 }
+/* Hide submenus by default */
+#main-nav .dropdown-menu {
+  display: none;
+}
+
+/* Show when mobile submenu is open */
+#main-nav .mobile-open > .dropdown-menu {
+  display: block;
+}
+
