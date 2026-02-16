@@ -419,30 +419,6 @@
 
   </div>
 
-<script>
-  // Simple review slideshow — targets .review-circle (your markup)
-  (function () {
-    let slideIndex = 0;
-    const reviews = document.querySelectorAll('.review-circle');
-
-    if (reviews.length === 0) return;
-
-    function showNextReview() {
-      reviews.forEach(r => r.classList.remove('active'));
-      slideIndex = (slideIndex + 1) % reviews.length;
-      reviews[slideIndex].classList.add('active');
-    }
-
-    // initialize
-    reviews.forEach((r, i) => {
-      if (i === 0) r.classList.add('active');
-      else r.classList.remove('active');
-    });
-
-    setInterval(showNextReview, 4000); // 4s per slide
-  })();
-</script>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
