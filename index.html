@@ -423,125 +423,26 @@
 
 <script src="script.js"></script>
 
-
 <script>
-// Counter function
-function animateCounter(id, end, duration) {
-    let element = document.getElementById(id);
-    let start = 0;
-    let step = Math.ceil(end / (duration / 16)); 
+document.addEventListener("DOMContentLoaded", function () {
 
-    let counter = setInterval(() => {
-        start += step;
-        if (start >= end) {
-            start = end;
-            clearInterval(counter);
-        }
-        element.textContent = start + "+";
-    }, 16);
-}
-
-// Scroll trigger using Intersection Observer
-let statSection = document.querySelector(".stats-section");
-let started = false;
-
-let observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !started) {
-        started = true;
-
-        animateCounter("count1", 500, 1500); 
-        animateCounter("count2", 15, 1200);
-        animateCounter("count3", 60, 1400);
-        animateCounter("count4", 800, 2000);
-        animateCounter("count5", 10, 1000);
-    }
-}, { threshold: 0.4 });
-
-observer.observe(statSection);
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const hero = document.querySelector(".hero");
-
-  // create fading layers
-  const layer1 = document.createElement("div");
-  const layer2 = document.createElement("div");
-
-  layer1.className = "heroLayer";
-  layer2.className = "heroLayer";
-
-  hero.prepend(layer1, layer2);
-
-  const slides = [
-    "IMG_5382.jpg",
-    "slide3.jpg",
-    "caly9.jpg",
-    "mm5.jpg",
-    "cam1.jpg",
-    "residential.png",
-    "mall2.jpg",
-  ];
-
-  let index = 0;
-  let showFirst = true;
-
-  function changeSlide() {
-    const show = showFirst ? layer1 : layer2;
-    const hide = showFirst ? layer2 : layer1;
-
-    show.style.backgroundImage = `url(${slides[index]})`;
-    show.style.opacity = 1;
-    hide.style.opacity = 0;
-
-    index = (index + 1) % slides.length;
-    showFirst = !showFirst;
-  }
-
-  changeSlide();
-  setInterval(changeSlide, 2500);
-
-});
-</script>
-
-<script>
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if(window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
-</script>
- 
-<script>
+  /* =======================
+     MOBILE MENU TOGGLE
+  ======================= */
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.getElementById("main-nav");
 
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("nav-open");
-    menuToggle.classList.toggle("active");
-  });
+  if (menuToggle && nav) {
+    // Toggle main menu
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("mobile-open");
+      menuToggle.classList.toggle("active");
+      document.body.style.overflow =
+        nav.classList.contains("mobile-open") ? "hidden" : "";
+    });
 
-</script>
- <script>
- document.addEventListener("DOMContentLoaded", function () {
-
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.getElementById("main-nav");
-
-  // Open / close main menu
-  toggle.addEventListener("click", function () {
-    nav.classList.toggle("mobile-open");
-    document.body.style.overflow =
-      nav.classList.contains("mobile-open") ? "hidden" : "";
-  });
-
-  // Mobile dropdowns (accordion)
-  document.querySelectorAll("#main-nav .dropdown-toggle")
-    .forEach(link => {
+    // Mobile dropdown accordion
+    document.querySelectorAll("#main-nav .dropdown-toggle").forEach(link => {
       link.addEventListener("click", function (e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
@@ -549,15 +450,114 @@ window.addEventListener("scroll", () => {
         }
       });
     });
+  }
 
-});
+  /* =======================
+     HERO SLIDER
+  ======================= */
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    const layer1 = document.createElement("div");
+    const layer2 = document.createElement("div");
+    layer1.className = layer2.className = "heroLayer";
+    hero.prepend(layer1, layer2);
 
-        </script>
+    const slides = [
+      "IMG_5382.jpg",
+      "slide3.jpg",
+      "caly9.jpg",
+      "mm5.jpg",
+      "cam1.jpg",
+      "residential.png",
+      "mall2.jpg"
+    ];
 
- 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+    let index = 0;
+    let showFirst = true;
 
+    function changeSlide() {
+      const show = showFirst ? layer1 : layer2;
+      const hide = showFirst ? layer2 : layer1;
+
+      show.style.backgroundImage = `url(${slides[index]})`;
+      show.style.opacity = 1;
+      hide.style.opacity = 0;
+
+      index = (index + 1) % slides.length;
+      showFirst = !showFirst;
+    }
+
+    changeSlide();
+    setInterval(changeSlide, 2500);
+  }
+
+  /* =======================
+     STATS COUNTER
+  ======================= */
+  function animateCounter(id, end, duration) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    let start = 0;
+    let step = Math.ceil(end / (duration / 16));
+
+    const counter = setInterval(() => {
+      start += step;
+      if (start >= end) {
+        start = end;
+        clearInterval(counter);
+      }
+      element.textContent = start + "+";
+    }, 16);
+  }
+
+  const statSection = document.querySelector(".stats-section");
+  if (statSection) {
+    let started = false;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        animateCounter("count1", 500, 1500);
+        animateCounter("count2", 15, 1200);
+        animateCounter("count3", 60, 1400);
+        animateCounter("count4", 800, 2000);
+        animateCounter("count5", 10, 1000);
+      }
+    }, { threshold: 0.4 });
+    observer.observe(statSection);
+  }
+
+  /* =======================
+     HEADER SCROLL EFFECT
+  ======================= */
+  const header = document.querySelector("header");
+  if (header) {
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  }
+
+  /* =======================
+     CUSTOMER REVIEWS SLIDER
+  ======================= */
+  const reviews = document.querySelectorAll(".review-circle");
+  if (reviews.length > 0) {
+    let slideIndex = 0;
+
+    function showNextReview() {
+      reviews.forEach(r => r.classList.remove("active"));
+      slideIndex = (slideIndex + 1) % reviews.length;
+      reviews[slideIndex].classList.add("active");
+    }
+
+    // initialize first
+    reviews.forEach((r, i) => r.classList.toggle("active", i === 0));
+    setInterval(showNextReview, 4000);
+  }
+
+  /* =======================
+     SEARCH WITH SUGGESTIONS
+  ======================= */
   const projects = {
     "azuza plaza": "/Projects/commercial/Abuja/Azuza.html",
     "mariam musa estate": "/Projects/kano/mariam-musa-estate.html",
@@ -577,6 +577,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const message = document.getElementById("searchMessage");
 
   function searchProject() {
+    if (!input || !button) return;
     const query = input.value.toLowerCase().trim();
     message.textContent = "";
 
@@ -590,37 +591,38 @@ document.addEventListener("DOMContentLoaded", function () {
     message.textContent = "No matching estate found.";
   }
 
-  button.addEventListener("click", searchProject);
-
-  input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      searchProject();
-    }
-  });
-
-  input.addEventListener("input", function() {
-    const query = input.value.toLowerCase();
-    suggestions.innerHTML = "";
-    suggestions.style.display = "none";
-
-    if (!query) return;
-
-    for (let key in projects) {
-      if (key.includes(query)) {
-        const div = document.createElement("div");
-        div.textContent = key.replace(/\b\w/g, l => l.toUpperCase());
-        div.onclick = function() {
-          window.location.href = projects[key];
-        };
-        suggestions.appendChild(div);
-        suggestions.style.display = "block";
+  if (button && input) {
+    button.addEventListener("click", searchProject);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchProject();
       }
-    }
-  });
+    });
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      if (!suggestions) return;
+      suggestions.innerHTML = "";
+      suggestions.style.display = "none";
+
+      if (!query) return;
+
+      for (let key in projects) {
+        if (key.includes(query)) {
+          const div = document.createElement("div");
+          div.textContent = key.replace(/\b\w/g, l => l.toUpperCase());
+          div.onclick = () => { window.location.href = projects[key]; };
+          suggestions.appendChild(div);
+          suggestions.style.display = "block";
+        }
+      }
+    });
+  }
 
 });
 </script>
+
 
 
 
