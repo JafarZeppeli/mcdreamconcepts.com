@@ -26,47 +26,36 @@ body{
   color:var(--text);
 }
 
-/* ===== HERO ===== */
+/* ===== SMALLER MODERN HERO ===== */
 .page-hero{
   position:relative;
-  padding:120px 18px 70px;
-  min-height:360px;
-  display:grid;
-  place-items:center;
+  min-height:220px;   /* smaller */
+  padding:100px 18px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   background:
-    radial-gradient(900px 380px at 20% 15%, rgba(255,77,166,.22), transparent 55%),
-    radial-gradient(900px 380px at 80% 20%, rgba(217,122,126,.22), transparent 55%),
-    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
     url("images/news3.jpg") center/cover no-repeat;
 }
 
-.page-hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
-}
-
 .page-hero__inner{
-  position:relative;
-  z-index:1;
-  max-width:900px;
+  max-width:700px;
 }
 
 .page-hero h1{
-  margin:0 0 10px;
+  margin:0 0 8px;
+  font-size:clamp(24px, 4vw, 40px);
+  font-weight:800;
   color:#fff;
-  font-weight:900;
   letter-spacing:-0.02em;
-  font-size:clamp(28px, 4vw, 54px);
 }
 
 .page-hero p{
   margin:0;
-  color:rgba(255,255,255,.88);
-  font-size:clamp(14px, 1.8vw, 18px);
-  line-height:1.7;
+  font-size:15px;
+  color:rgba(255,255,255,.85);
 }
 
 /* ===== LAYOUT WRAPPER ===== */
@@ -208,6 +197,18 @@ footer{
 @media (max-width: 520px){
   .box{ padding:18px; }
   .container .section{ padding:18px; }
+}
+
+header{
+  background:#d97a7e !important;
+}
+
+header a{
+  color:#fff !important;
+}
+
+header .arrow{
+  color:#fff !important;
 }
 </style>
 
