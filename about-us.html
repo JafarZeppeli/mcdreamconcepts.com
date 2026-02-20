@@ -629,24 +629,81 @@ footer{
     margin-left: 0;
   }
 }
+  /* fix: your book button text is invisible */
+.book-btn{ color:#fff; }
+
+/* hamburger button */
+.menu-toggle{
+  display:none;
+  margin-left:auto;
+  background:transparent;
+  border:2px solid rgba(255,255,255,.65);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+/* Desktop nav stays normal */
+#main-nav{ display:block; }
+
+/* Mobile layout */
+@media (max-width: 900px){
+  header{ flex-wrap: wrap; }
+
+  .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
+
+  /* hide nav until menu is opened */
+  #main-nav{
+    display:none;
+    width:100%;
+    margin-top:10px;
+  }
+  #main-nav.nav-open{ display:block; }
+
+  header nav ul{
+    flex-direction: column;
+    align-items:flex-start;
+    gap:10px;
+    margin-left:0;
+    padding:10px 0 0;
+    width:100%;
+  }
+
+  /* dropdowns should expand in-flow on mobile */
+  #main-nav .submenu,
+  #main-nav .dropdown-menu{
+    position: static;
+    box-shadow: none;
+    width:100%;
+    padding:6px 0;
+  }
+
+  #main-nav li > ul a{ padding-left:22px; }
+  #main-nav .dropdown-submenu > ul a{ padding-left:34px; }
+}
 </style>
   
 
 </head>
 <body>
 
- <header>
+<header>
   <div class="brand">
     <a href="index.html">
       <img src="logo2.png" alt="Logo" />
     </a>
   </div>
 
+  <!-- ✅ Mobile hamburger -->
+  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+    ☰ MENU
+  </button>
+
   <nav id="main-nav">
     <ul>
       <li><a href="index.html">HOME</a></li>
 
-      <!-- WHO WE ARE -->
       <li class="dropdown-who">
         <a href="#" class="dropdown-toggle">Who We Are <span class="arrow">▾</span></a>
         <ul class="submenu">
@@ -654,17 +711,12 @@ footer{
         </ul>
       </li>
 
-      <!-- PROJECTS -->
       <li class="dropdown dropdown-projects">
         <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
-
         <ul class="dropdown-menu">
-          <!-- Residential -->
           <li class="dropdown-submenu">
             <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
-
             <ul class="dropdown-menu">
-              <!-- Abuja -->
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
@@ -682,7 +734,6 @@ footer{
                 </ul>
               </li>
 
-              <!-- Kaduna -->
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
@@ -692,7 +743,6 @@ footer{
                 </ul>
               </li>
 
-              <!-- Kano -->
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
@@ -700,7 +750,6 @@ footer{
                 </ul>
               </li>
 
-              <!-- Lokoja -->
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
@@ -710,7 +759,6 @@ footer{
             </ul>
           </li>
 
-          <!-- Commercial -->
           <li class="dropdown-submenu">
             <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
             <ul class="dropdown-menu">
@@ -739,7 +787,6 @@ footer{
         </ul>
       </li>
 
-      <!-- CONTACT -->
       <li class="dropdown-contact">
         <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
         <ul class="submenu">
@@ -748,7 +795,6 @@ footer{
         </ul>
       </li>
 
-      <!-- CTA -->
       <li class="nav-cta">
         <a href="book-visit.html" class="book-btn">Book a Visit</a>
       </li>
@@ -953,64 +999,48 @@ footer{
     });
   </script>
 
-  <!-- Dropdown open/close (click + outside close + esc) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const nav = document.querySelector("#main-nav");
-      if (!nav) return;
-
-      const closeAll = () => {
-        nav.querySelectorAll("li.open").forEach((li) => li.classList.remove("open"));
-      };
-
-      const closeSiblings = (li) => {
-        const parent = li.parentElement;
-        if (!parent) return;
-        [...parent.children].forEach((sib) => {
-          if (sib !== li) sib.classList.remove("open");
-        });
-      };
-
-      nav.addEventListener("click", (e) => {
-        const toggle = e.target.closest("a.dropdown-toggle");
-        if (!toggle || !nav.contains(toggle)) return;
-
-        const submenu = toggle.nextElementSibling;
-        if (!submenu || submenu.tagName !== "UL") return;
-
-        e.preventDefault();
-
-        const li = toggle.closest("li");
-        if (!li) return;
-
-        const willOpen = !li.classList.contains("open");
-        closeSiblings(li);
-
-        if (willOpen) {
-          li.classList.add("open");
-
-          // keep parents open (nested menus)
-          let p = li.parentElement?.closest("li");
-          while (p && nav.contains(p)) {
-            p.classList.add("open");
-            p = p.parentElement?.closest("li");
-          }
-        } else {
-          li.classList.remove("open");
-          li.querySelectorAll("li.open").forEach((x) => x.classList.remove("open"));
-        }
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!nav.contains(e.target)) closeAll();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAll();
-      });
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("#main-nav");
+  const btn = document.querySelector(".menu-toggle");
+  if (btn && nav) {
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("nav-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
-  </script>
+  }
+
+  if (!nav) return;
+
+  const closeAll = () => {
+    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
+  };
+
+  nav.addEventListener("click", (e) => {
+    const toggle = e.target.closest("a.dropdown-toggle");
+    if (!toggle || !nav.contains(toggle)) return;
+
+    const submenu = toggle.nextElementSibling;
+    if (!submenu || submenu.tagName !== "UL") return;
+
+    e.preventDefault();
+
+    const li = toggle.closest("li");
+    if (!li) return;
+
+    // close siblings at same level
+    const parent = li.parentElement;
+    if (parent) [...parent.children].forEach(sib => { if (sib !== li) sib.classList.remove("open"); });
+
+    li.classList.toggle("open");
+  });
+
+  // close dropdowns when tapping outside the nav (optional)
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !(btn && btn.contains(e.target))) closeAll();
+  });
+});
+</script>
 </body>
 </html>
-</body>
-</html>
+
