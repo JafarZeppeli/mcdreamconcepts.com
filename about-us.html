@@ -559,14 +559,15 @@ footer{
     padding: 30px;
   }
 }
-
+#main-nav li > ul { display: none; }
+#main-nav li.open > ul { display: block; }
 </style>
   
 
 </head>
 <body>
 
-     <header>
+ <header>
   <div class="brand">
     <a href="index.html">
       <img src="logo2.png" alt="Logo" />
@@ -577,118 +578,113 @@ footer{
     <ul>
       <li><a href="index.html">HOME</a></li>
 
- <li class="dropdown-who">
-    <a href="#" class="dropdown-toggle">Who We Are</a><span class="arrow">▾</span></a>
-
-    <ul class="submenu">
-        <li><a href="about.html">About Us</a></li>
-    </ul>
-</li>
-
-
-      <!-- PROJECTS DROPDOWN -->
-    <li class="dropdown dropdown-projects">
-  <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
-
-  <ul class="dropdown-menu">
-
-    <!-- Residential -->
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
-
-      <ul class="dropdown-menu">
-
-        <!-- Abuja -->
-        <li class="dropdown-submenu">
-          <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-
-          <ul class="dropdown-menu">
-            <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
-            <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
-            <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
-            <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
-            <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
-            <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
-            <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
-            <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
-            <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
-            <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
-            <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
-          </ul>
-        </li>
-
-        <!-- Kaduna -->
-        <li class="dropdown-submenu">
-          <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
-
-          <ul class="dropdown-menu">
-            <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
-            <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
-            <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
-          </ul>
-        </li>
-
-        <!-- Kano -->
-        <li class="dropdown-submenu">
-          <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-
-          <ul class="dropdown-menu">
-            <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
-          </ul>
-        </li>
-
-        <!-- Lokoja -->
-        <li class="dropdown-submenu">
-          <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
-
-          <ul class="dropdown-menu">
-            <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
-          </ul>
-        </li>
-
-      </ul>
-    </li>
-
-   <li class="dropdown-submenu">
-  <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
-  <ul class="dropdown-menu">
-
-      <li class="dropdown-submenu">
-        <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-        <ul class="dropdown-menu">
-            <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
-        </ul> 
-      </li>
-
-      <li class="dropdown-submenu">
-        <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-        <ul class="dropdown-menu">
-            <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+      <!-- WHO WE ARE -->
+      <li class="dropdown-who">
+        <a href="#" class="dropdown-toggle">Who We Are <span class="arrow">▾</span></a>
+        <ul class="submenu">
+          <li><a href="about.html">About Us</a></li>
         </ul>
       </li>
 
-      <li class="dropdown-submenu">
-        <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+      <!-- PROJECTS -->
+      <li class="dropdown dropdown-projects">
+        <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+
         <ul class="dropdown-menu">
-            <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+          <!-- Residential -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+
+            <ul class="dropdown-menu">
+              <!-- Abuja -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
+                  <li><a href="projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+                  <li><a href="projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+                  <li><a href="projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+                  <li><a href="projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+                  <li><a href="projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+                  <li><a href="projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+                  <li><a href="projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+                  <li><a href="projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+                  <li><a href="projects/abuja/salix-estate.html">Salix Estate</a></li>
+                  <li><a href="projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+                </ul>
+              </li>
+
+              <!-- Kaduna -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
+                  <li><a href="projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
+                  <li><a href="projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
+                </ul>
+              </li>
+
+              <!-- Kano -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
+                </ul>
+              </li>
+
+              <!-- Lokoja -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Commercial -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
       </li>
 
-  </ul>
-</li>
+      <!-- CONTACT -->
+      <li class="dropdown-contact">
+        <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+        <ul class="submenu">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="career.html">Agent/Career Registration</a></li>
+        </ul>
+      </li>
 
+      <!-- CTA -->
+      <li class="nav-cta">
+        <a href="book-visit.html" class="book-btn">Book a Visit</a>
+      </li>
     </ul>
- <li class="dropdown-contact">
-  <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
-
-  <ul class="submenu"> 
-      <li><a href="contact.html">Contact Us</a></li>
-      <li><a href="career.html">Agent/Career Registration</a></li>
-  </ul>
-</li>
-
-<a href="book-visit.html" class="book-btn">Book a Visit</a>
-
   </nav>
 </header>
 
@@ -883,7 +879,20 @@ footer{
   </script>
 
   <!-- Keep your slideshow override script (unchanged behaviour but left in place) -->
- 
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#main-nav .dropdown-toggle").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const li = a.closest("li");
+      const submenu = li && li.querySelector(":scope > ul");
+      if (submenu) {
+        e.preventDefault();
+        li.classList.toggle("open");
+      }
+    });
+  });
+});
+</script>
 
 </body>
 </html>
