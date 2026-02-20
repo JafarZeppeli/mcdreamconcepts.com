@@ -5,250 +5,209 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>News & Updates — McDream Concepts</title>
   <link rel="stylesheet" href="style.css" />
-<style>
-/* =========================
-   GLOBAL FOUNDATION
-========================= */
-* {
-  box-sizing: border-box;
+
+
+  <style>
+:root{
+  --brand:#d97a7e;
+  --brand-2:#ff4da6;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#121316;
+  --muted:#5c6472;
+  --line:rgba(0,0,0,.08);
+  --shadow:0 18px 60px rgba(0,0,0,.10);
+  --shadow-soft:0 12px 40px rgba(0,0,0,.08);
+  --radius:18px;
 }
 
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #f7f7f7;
-  color: #2f2f2f;
-  line-height: 1.85;
+body{
+  background:var(--bg);
+  color:var(--text);
 }
 
-/* =========================
-   HERO / BANNER (ELEGANT)
-========================= */
-.news-hero {
-  position: relative;
-  height: 420px;
-  background: url("images/news3.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* ===== HERO ===== */
+.page-hero{
+  position:relative;
+  padding:120px 18px 70px;
+  min-height:360px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  background:
+    radial-gradient(900px 380px at 20% 15%, rgba(255,77,166,.22), transparent 55%),
+    radial-gradient(900px 380px at 80% 20%, rgba(217,122,126,.22), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("images/news3.jpg") center/cover no-repeat;
 }
 
-.news-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.35)
-  );
+.page-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
 }
 
-.news-hero .inner {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  padding: 0 24px;
+.page-hero__inner{
+  position:relative;
+  z-index:1;
+  max-width:900px;
 }
 
-.news-hero h1 {
-  font-size: 44px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  margin-bottom: 14px;
-  color: #fff;
+.page-hero h1{
+  margin:0 0 10px;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:-0.02em;
+  font-size:clamp(28px, 4vw, 54px);
 }
 
-.news-hero p {
-  font-size: 17px;
-  font-weight: 400;
-  opacity: 0.9;
-  margin: 0;
-  color: #f3f3f3;
+.page-hero p{
+  margin:0;
+  color:rgba(255,255,255,.88);
+  font-size:clamp(14px, 1.8vw, 18px);
+  line-height:1.7;
 }
 
-/* =========================
-   NEWS LAYOUT
-========================= */
-.news-section {
-  max-width: 1150px;
-  margin: 90px auto;
-  padding: 0 22px;
+/* ===== LAYOUT WRAPPER ===== */
+.container{
+  max-width:1100px;
+  margin:-40px auto 90px;
+  padding:0 18px;
 }
 
-.news-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 60px;
+/* Overview card */
+.container .section{
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  padding:22px 22px;
+  backdrop-filter: blur(10px);
 }
 
-/* =========================
-   NEWS CARD (PREMIUM)
-========================= */
-.news-card {
-  background: #ffffff;
-  border-radius: 22px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.container .section h2{
+  margin:0 0 10px;
+  font-size:20px;
+  letter-spacing:-0.01em;
 }
 
-.news-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.14);
+.container .section p{
+  margin:0;
+  color:var(--muted);
+}
+.container .section p + p{
+  margin-top:10px;
 }
 
-.news-card img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
+/* ===== FORM GRID ===== */
+.boxes{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:16px;
 }
 
-.news-card-body {
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+.box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  padding:22px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
-.news-card-body h2 {
-  font-size: 21px;
-  font-weight: 600;
-  color: #1f1f1f;
-  margin: 0;
-  line-height: 1.4;
+.box:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+  border-color:rgba(0,0,0,.12);
 }
 
-.news-card-body p {
-  font-size: 15.5px;
-  color: #555;
-  margin: 0;
-  line-height: 1.8;
-  flex-grow: 1;
+.box h3{
+  margin:0 0 6px;
+  font-size:18px;
+  letter-spacing:-0.01em;
 }
 
-/* Elegant CTA */
-.news-card-body a.read-more {
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #d97a7e;
-  text-decoration: none;
-  align-self: flex-start;
-  position: relative;
+.box p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:14px;
 }
 
-.news-card-body a.read-more::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #d97a7e;
-  transition: width 0.3s ease;
-  margin-top: 4px;
+/* ===== FORM CONTROLS ===== */
+form{
+  display:grid;
+  gap:10px;
 }
 
-.news-card-body a.read-more:hover::after {
-  width: 100%;
+input, select, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  outline:none;
+  font-family:inherit;
+  font-size:14px;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-/* =========================
-   PAGINATION
-========================= */
-.pagination {
-  margin-top: 90px;
-  text-align: center;
+textarea{
+  min-height:120px;
+  resize:vertical;
 }
 
-.pagination button {
-  background: transparent;
-  border: 1.5px solid #d97a7e;
-  color: #d97a7e;
-  padding: 14px 36px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.35s ease;
+input:focus, select:focus, textarea:focus{
+  border-color:rgba(217,122,126,.7);
+  box-shadow:0 0 0 4px rgba(217,122,126,.15);
 }
 
-.pagination button:hover {
-  background: #d97a7e;
-  color: #fff;
+button[type="submit"]{
+  margin-top:6px;
+  border:none;
+  border-radius:14px;
+  padding:12px 14px;
+  font-weight:900;
+  letter-spacing:.02em;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(90deg, var(--brand), var(--brand-2));
+  box-shadow:0 16px 40px rgba(217,122,126,.25);
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 
-/* =========================
-   HEADER OVERRIDES
-========================= */
-header {
-  background: #d97a7e !important;
+button[type="submit"]:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 55px rgba(217,122,126,.32);
 }
 
-header a {
-  color: #fff !important;
-  font-weight: 500;
+button[type="submit"]:active{
+  transform:translateY(0);
 }
 
-header .dropdown-menu,
-header .submenu {
-  background: #ffffff !important;
-  border-radius: 12px;
-  padding: 10px 0;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+/* File input nicer spacing */
+input[type="file"]{
+  padding:10px;
 }
 
-header .dropdown-menu a,
-header .submenu a {
-  color: #1f1f1f !important;
-  padding: 10px 22px;
-  font-size: 14px;
+/* ===== FOOTER ===== */
+footer{
+  padding:34px 0;
+  text-align:center;
+  color:rgba(0,0,0,.55);
+  background:transparent;
 }
 
-header .dropdown-menu a:hover,
-header .submenu a:hover {
-  background: #f7f0f2 !important;
-  color: #d97a7e !important;
+/* ===== MOBILE ===== */
+@media (max-width: 900px){
+  .boxes{ grid-template-columns:1fr; }
+  .container{ margin-top:-28px; }
 }
 
-header .arrow {
-  color: #fff !important;
-}
-
-/* =========================
-   UTILITIES
-========================= */
-.hidden-news {
-  display: none;
-}
-
-/* =========================
-   MOBILE REFINEMENT
-========================= */
-@media (max-width: 768px) {
-  .news-hero {
-    height: 340px;
-  }
-
-  .news-hero h1 {
-    font-size: 30px;
-  }
-
-  .news-section {
-    margin: 60px auto;
-  }
-
-  .news-card img {
-    height: 180px;
-  }
-
-  .news-card-body {
-    padding: 26px;
-  }
+@media (max-width: 520px){
+  .box{ padding:18px; }
+  .container .section{ padding:18px; }
 }
 </style>
 
@@ -373,10 +332,12 @@ header .arrow {
 </header>
 
 <!-- HERO -->
-<div class="agent-hero">
-  <h1>Agent & Career Registration</h1>
-</div>
-
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <h1>Agent & Career Registration</h1>
+    <p>Join McDream Concepts — register as an agent or apply for career opportunities.</p>
+  </div>
+</section>
 <!-- CONTENT -->
 <div class="container">
 
