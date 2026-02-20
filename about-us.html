@@ -1158,43 +1158,49 @@ footer{
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
   const btn = document.querySelector(".menu-toggle");
-  const closeBtn = document.querySelector(".menu-close"); // if you added ✕ button
+  const closeBtn = document.querySelector(".menu-close");
 
   if (!nav) return;
 
-  // Open/close main mobile menu
+  const closeAllDropdowns = () => {
+    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
+  };
+
+  const closeMenu = () => {
+    closeAllDropdowns();
+    nav.classList.remove("nav-open");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
   const openMenu = () => {
     nav.classList.add("nav-open");
     btn?.setAttribute("aria-expanded", "true");
   };
 
-  const closeMenu = () => {
-    nav.classList.remove("nav-open");
-    btn?.setAttribute("aria-expanded", "false");
-    // also close dropdown branches
-    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
-  };
-
+  // Toggle mobile menu
   btn?.addEventListener("click", () => {
     nav.classList.contains("nav-open") ? closeMenu() : openMenu();
   });
 
+  // Optional X close button
   closeBtn?.addEventListener("click", closeMenu);
 
-  // Dropdown toggle (supports deep nesting)
+  // Dropdown handling (supports deep nesting)
   nav.addEventListener("click", (e) => {
     const toggle = e.target.closest("a.dropdown-toggle");
     if (!toggle || !nav.contains(toggle)) return;
 
     const submenu = toggle.nextElementSibling;
-    if (!submenu || submenu.tagName !== "UL") return; // normal links navigate
+    if (!submenu || submenu.tagName !== "UL") return;
 
     e.preventDefault();
+    e.stopPropagation();
 
     const li = toggle.closest("li");
     if (!li) return;
 
-    // close only siblings at same UL level (and their children)
+    // close siblings at same level
     const parentUl = li.parentElement;
     if (parentUl) {
       [...parentUl.children].forEach((sib) => {
@@ -1208,21 +1214,20 @@ document.addEventListener("DOMContentLoaded", () => {
     li.classList.toggle("open");
   });
 
-  // Close menu when tapping outside
+  // ✅ Close EVERYTHING when clicking outside
   document.addEventListener("click", (e) => {
-    const clickedInsideNav = nav.contains(e.target);
-    const clickedMenuBtn = btn && btn.contains(e.target);
-    if (nav.classList.contains("nav-open") && !clickedInsideNav && !clickedMenuBtn) {
-      closeMenu();
-    }
+    const insideNav = nav.contains(e.target);
+    const insideBtn = btn && btn.contains(e.target);
+    if (!insideNav && !insideBtn) closeMenu();
   });
 
-  // Esc closes menu (desktop)
+  // Esc key closes everything
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 });
 </script>
+
 </body>
 </html>
 
