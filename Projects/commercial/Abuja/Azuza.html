@@ -1,119 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZUZA PLAZA, DEI-DEI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROJECT NAME — McDream Concepts</title>
 
-    <link rel="stylesheet" href="/style.css">
+  <!-- MAIN SITE CSS (root path so it works everywhere) -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    /* Keep your lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    }
+
+    /* ===== IMPORTANT FIX =====
+       Your old "body{font-size:40px}" breaks the header.
+       Keep body normal, style content sections instead.
+    */
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      color: #1f2933;
+    }
+
+    /* Your typography (safe sizes) */
+    .project-header h1 { font-size: 2.6rem; font-weight: 700; }
+    .project-hero-overlay h1 { font-size: 2.1rem; font-weight: 600; }
+    .project-hero-overlay p { font-size: 1.05rem; }
+
+    section h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem; }
+    .project-details-list li { font-size: 1.05rem; line-height: 1.8; margin-bottom: 0.6rem; }
+    .feature-card { font-size: 1.05rem; font-weight: 500; padding: 1.2rem; }
+    .project-button { font-size: 1.05rem; padding: 0.85rem 1.7rem; }
+
+    /* ===== HEADER: FORCE TOP + HORIZONTAL ON MOBILE =====
+       We DO NOT change your header background color (keeps McDream pink from your main CSS)
+       We only force layout/behavior.
+    */
+
+    /* Ensure header never becomes a right-side panel */
+    header {
+      position: relative;
+      left: 0;
+      right: auto;
+      width: 100%;
+      transform: none;
+    }
+
+    /* Make sure nav stays normal (not fixed to right) */
+    #main-nav {
+      position: relative;
+      right: auto;
+      left: 0;
+      width: auto;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* MOBILE behavior: horizontal top scroll bar */
+    @media (max-width: 768px) {
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      /* keep nav on top and scrollable horizontally */
+      #main-nav {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      #main-nav::-webkit-scrollbar { display: none; }
+
+      #main-nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 10px 8px;
+        margin: 0;
+      }
+
+      #main-nav li {
+        flex: 0 0 auto;
+      }
+
+      #main-nav a {
+        white-space: nowrap;
+      }
+
+      /* dropdown menus are closed by default on mobile */
+      #main-nav .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+      }
+
+      /* open state controlled by JS class */
+      #main-nav .open > .dropdown-menu {
+        display: block;
+      }
+
+      /* make dropdown menu items look neat on mobile */
+      #main-nav .dropdown-menu a {
+        display: block;
+        padding: 10px 12px;
+      }
+    }
+  </style>
 </head>
 
-<body class="project-page commercial-page">
+<body class="project-page">
+
 <header>
-    <div class="brand">
-        <a href="/index.html">
-            <img src="/logo2.png" alt="Logo" />
-        </a>
-    </div>
+  <div class="brand">
+    <a href="/index.html">
+      <img src="/logo2.png" alt="Logo" />
+    </a>
+  </div>
 
-    <nav id="main-nav">
-        <ul>
-            <li><a href="/index.html">HOME</a></li>
-            <li><a href="/about-us.html">WHO WE ARE</a></li>
+  <nav id="main-nav">
+    <ul>
+      <li><a href="/index.html">HOME</a></li>
+      <li><a href="/about-us.html">WHO WE ARE</a></li>
 
-            <li class="dropdown">
-                <a href="#">PROJECTS <span class="arrow">▾</span></a>
+      <!-- PROJECTS -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+
+          <!-- RESIDENTIAL -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+            <ul class="dropdown-menu">
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
-
-                    <!-- Residential -->
-                    <li class="dropdown-submenu">
-                        <a href="#">Residential ▸</a>
-                        <ul class="dropdown-menu">
-
-                            <!-- Abuja -->
-                            <li class="dropdown-submenu">
-                                <a href="#">Abuja ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/residential/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
-                                    <li><a href="/Projects/residential/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
-                                    <li><a href="/Projects/residential/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
-                                    <li><a href="/Projects/residential/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
-                                    <li><a href="/Projects/residential/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
-                                    <li><a href="/Projects/residential/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
-                                    <li><a href="/Projects/residential/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
-                                    <li><a href="/Projects/residential/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
-                                    <li><a href="/Projects/residential/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
-                                    <li><a href="/Projects/residential/abuja/salix-estate.html">Salix Estate</a></li>
-                                    <li><a href="/Projects/residential/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Kaduna -->
-                            <li class="dropdown-submenu">
-                                <a href="#">Kaduna ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/residential/kaduna/rabah-road.html">Rabah Road</a></li>
-                                    <li><a href="/Projects/residential/kaduna/inuwa-wada.html">Inuwa Wada</a></li>
-                                    <li><a href="/Projects/residential/kaduna/lafiya-road.html">Lafiya Road</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Kano -->
-                            <li class="dropdown-submenu">
-                                <a href="#">Kano ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/residential/kano/azalea-estate.html">Azalea Estate</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- Lokoja -->
-                            <li class="dropdown-submenu">
-                                <a href="#">Lokoja ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/residential/lokoja/bungalow-city.html">Bungalow City</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <!-- Commercial -->
-                    <li class="dropdown-submenu">
-                        <a href="#">Commercial ▸</a>
-                        <ul class="dropdown-menu">
-
-                            <li class="dropdown-submenu">
-                                <a href="#">Abuja ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/commercial/Abuja/Azuza.html">Azuza Plaza</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">Kano ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown-submenu">
-                                <a href="#">Lagos ▸</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/Projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </li>
-
+                  <li><a href="/Projects/abuja/azalea-estate-durumi.html">Azalea Smart City</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+                  <li><a href="/Projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+                  <li><a href="/Projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+                  <li><a href="/Projects/abuja/salix-estate.html">Salix Estate</a></li>
+                  <li><a href="/Projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
                 </ul>
-            </li>
+              </li>
 
-            <li><a href="/contact.html">CONTACT</a></li>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/kaduna/rabah-road.html">Rabah Road</a></li>
+                  <li><a href="/Projects/kaduna/inuwa-wada.html">Inuwa Wada</a></li>
+                  <li><a href="/Projects/kaduna/lafiya-road.html">Lafiya Road</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/kano/mariam-musa-estate.html">Mariam Musa Estate</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
+          <!-- COMMERCIAL -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+            <ul class="dropdown-menu">
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/Abuja/Azuza.html">Azuza Plaza</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
         </ul>
-    </nav>
-</header>
+      </li>
 
+      <li><a href="/contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
 
 <!-- ========================= -->
