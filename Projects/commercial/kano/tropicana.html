@@ -1,197 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>PROJECT NAME — McDream Concepts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROJECT NAME — McDream Concepts</title>
 
-    <!-- MAIN SITE CSS -->
-    <link rel="stylesheet" href="../../style.css">
+  <!-- MAIN SITE CSS (root path = works from any folder) -->
+  <link rel="stylesheet" href="/style.css" />
 
-    <style>
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 999999;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.3);
-        }
-        /* ===== TYPOGRAPHY UPGRADE ===== */
+  <style>
+    /* ===============================
+       LIGHTBOX (KEEP)
+       =============================== */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999999;
+    }
+    .lightbox img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:14px;
+      box-shadow:0 0 25px rgba(0,0,0,.3);
+    }
 
-body {
-    font-family: 'Inter', sans-serif;
-    font-size: 40px;
-    line-height: 1.8;
-    color: #1f2933;
-}
+    /* ===============================
+       TYPOGRAPHY (FIXED)
+       IMPORTANT: do NOT set body to 40px
+       =============================== */
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:16px;
+      line-height:1.6;
+      color:#111;
+      margin:0;
+    }
 
-/* Main project titles */
-.project-header h1 {
-    font-size: 3.8rem;
-    font-weight: 700;
-}
+    /* Main project titles */
+    .project-header h1{ font-size:2.4rem; font-weight:700; }
+    .project-hero-overlay h1{ font-size:2rem; font-weight:600; }
+    .project-hero-overlay p{ font-size:1rem; }
 
-.project-hero-overlay h1 {
-    font-size: 3rem;
-    font-weight: 600;
-}
+    /* Section headings */
+    section h2{ font-size:1.6rem; font-weight:600; margin-bottom:1rem; }
 
-.project-hero-overlay p {
-    font-size: 1.4rem;
-}
+    /* Property details list */
+    .project-details-list li{ font-size:1rem; line-height:1.8; margin-bottom:.6rem; }
 
-/* Section headings */
-section h2 {
-    font-size: 2.4rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
+    /* Feature cards */
+    .feature-card{ font-size:1rem; font-weight:500; padding:1.2rem; }
 
-/* Property details list */
-.project-details-list li {
-    font-size: 1.25rem;
-    line-height: 1.9;
-    margin-bottom: 0.8rem;
-}
+    /* Buttons */
+    .project-button{ font-size:1rem; padding:.85rem 1.6rem; }
 
-/* Feature cards */
-.feature-card {
-    font-size: 1.25rem;
-    font-weight: 500;
-    padding: 1.6rem;
-}
+    /* ===============================
+       PREMIUM HEADER (PROJECT PAGES)
+       Horizontal top nav on mobile
+       =============================== */
+    body.project-page header{
+      position:sticky;
+      top:0;
+      z-index:10000;
+      background:rgba(10,10,10,.92);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 18px;
+    }
 
-/* Navigation */
-#main-nav a {
-    font-size: 0.95rem;
-    letter-spacing: 1.2px;
-}
+    body.project-page header .brand img{
+      height:44px;
+      width:auto;
+      display:block;
+    }
 
-/* Buttons */
-.project-button {
-    font-size: 1.15rem;
-    padding: 0.9rem 2rem;
-}
+    /* Normalize header sizing (protects from any large typography rules) */
+    body.project-page header,
+    body.project-page header *{
+      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:13px;
+      line-height:1.2;
+    }
 
-    </style>
+    /* NAV */
+    body.project-page #main-nav ul{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin:0;
+      padding:0;
+    }
+
+    body.project-page #main-nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:500;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.92;
+      padding:10px 8px;
+      border-radius:10px;
+      transition:opacity .2s ease, background .2s ease;
+      white-space:nowrap;
+    }
+    body.project-page #main-nav a:hover{
+      opacity:1;
+      background:rgba(255,255,255,.06);
+    }
+
+    /* Dropdown layout (desktop hover) */
+    body.project-page #main-nav .dropdown,
+    body.project-page #main-nav .dropdown-submenu{
+      position:relative;
+    }
+
+    body.project-page #main-nav .dropdown-menu{
+      display:none;
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      min-width:260px;
+      background:rgba(15,15,15,.98);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:10px;
+      box-shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+
+    @media (min-width: 769px){
+      body.project-page #main-nav .dropdown:hover > .dropdown-menu{ display:block; }
+      body.project-page #main-nav .dropdown-submenu:hover > .dropdown-menu{ display:block; }
+    }
+
+    /* Flyout submenu */
+    body.project-page #main-nav .dropdown-submenu > .dropdown-menu{
+      top:0;
+      left:calc(100% + 10px);
+    }
+
+    body.project-page #main-nav .dropdown-menu a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      letter-spacing:.04em;
+      text-transform:none;
+      opacity:.95;
+    }
+    body.project-page #main-nav .dropdown-menu a:hover{
+      background:rgba(255,255,255,.08);
+      opacity:1;
+    }
+
+    /* MOBILE: keep menu on top horizontally (scrollable) */
+    @media (max-width: 768px){
+      body.project-page header{
+        flex-wrap:wrap;
+        gap:10px;
+        padding:10px 12px;
+      }
+
+      body.project-page #main-nav{
+        width:100%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+      body.project-page #main-nav::-webkit-scrollbar{ display:none; }
+
+      body.project-page #main-nav ul{
+        flex-wrap:nowrap;
+        gap:10px;
+        padding-bottom:6px;
+      }
+
+      body.project-page #main-nav a{
+        background:rgba(255,255,255,.04);
+        border-radius:999px;
+        padding:10px 12px;
+      }
+
+      /* On mobile, hover doesn't work well; keep dropdowns closed (clean) */
+      body.project-page #main-nav .dropdown-menu{
+        position:static;
+        box-shadow:none;
+        margin-top:8px;
+        min-width:unset;
+      }
+      body.project-page #main-nav .dropdown:hover > .dropdown-menu,
+      body.project-page #main-nav .dropdown-submenu:hover > .dropdown-menu{
+        display:none;
+      }
+    }
+  </style>
 </head>
 
 <body class="project-page">
 
 <header>
-    <div class="brand">
-        <a href="../../index.html">
-            <img src="../../logo2.png" alt="Logo" />
-        </a>
-    </div>
+  <div class="brand">
+    <a href="/index.html">
+      <img src="/logo2.png" alt="Logo" />
+    </a>
+  </div>
 
-    <nav id="main-nav">
-        <ul>
-            <li><a href="../../index.html">HOME</a></li>
+  <nav id="main-nav">
+    <ul>
+      <li><a href="/index.html">HOME</a></li>
+      <li><a href="/about-us.html">WHO WE ARE</a></li>
 
-            <li><a href="../../about-us.html">WHO WE ARE</a></li>
+      <!-- PROJECTS -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
 
-            <!-- PROJECTS -->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+          <!-- RESIDENTIAL -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
+            <ul class="dropdown-menu">
+
+              <!-- ABUJA -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
                 <ul class="dropdown-menu">
-
-                    <!-- RESIDENTIAL -->
-                    <li class="dropdown-submenu">
-                        <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
-                        <ul class="dropdown-menu">
-
-                            <!-- ABUJA -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../abuja/azalea-estate-durumi.html">Azalea Smart City</a></li>
-                                    <li><a href="../abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
-                                    <li><a href="../abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
-                                    <li><a href="../abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
-                                    <li><a href="../abuja/camellia-estate-1.html">Camellia Estate I</a></li>
-                                    <li><a href="../abuja/camellia-estate-2.html">Camellia Estate II</a></li>
-                                    <li><a href="../abuja/camellia-estate-3.html">Camellia Estate III</a></li>
-                                    <li><a href="../abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
-                                    <li><a href="../abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
-                                    <li><a href="../abuja/salix-estate.html">Salix Estate</a></li>
-                                    <li><a href="../abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- KADUNA -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../kaduna/rabah-road.html">Rabah Road</a></li>
-                                    <li><a href="../kaduna/inuwa-wada.html">Inuwa Wada</a></li>
-                                    <li><a href="../kaduna/lafiya-road.html">Lafiya Road</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- KANO -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../kano/mariam-musa-estate.html">Mariam Musa Estate</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- LOKOJA -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../lokoja/bungalow-city.html">Bungalow City</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- COMMERCIAL -->
-                    <li class="dropdown-submenu">
-                        <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
-                        <ul class="dropdown-menu">
-
-                            <!-- ABUJA -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../commercial/Abuja/Azuza.html">Azuza Plaza</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- KANO -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../commercial/kano/tropicana.html">Tropicana Mall</a></li>
-                                </ul>
-                            </li>
-
-                            <!-- LAGOS -->
-                            <li class="dropdown-submenu">
-                                <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="../commercial/lagos/oxygen.html">Oxygen Mall</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </li>
-
+                  <li><a href="/Projects/abuja/azalea-estate-durumi.html">Azalea Smart City</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+                  <li><a href="/Projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+                  <li><a href="/Projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+                  <li><a href="/Projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+                  <li><a href="/Projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+                  <li><a href="/Projects/abuja/salix-estate.html">Salix Estate</a></li>
+                  <li><a href="/Projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
                 </ul>
-            </li>
+              </li>
 
-            <li><a href="../../contact.html">CONTACT</a></li>
+              <!-- KADUNA -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/kaduna/rabah-road.html">Rabah Road</a></li>
+                  <li><a href="/Projects/kaduna/inuwa-wada.html">Inuwa Wada</a></li>
+                  <li><a href="/Projects/kaduna/lafiya-road.html">Lafiya Road</a></li>
+                </ul>
+              </li>
+
+              <!-- KANO -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/kano/mariam-musa-estate.html">Mariam Musa Estate</a></li>
+                </ul>
+              </li>
+
+              <!-- LOKOJA -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- COMMERCIAL -->
+          <li class="dropdown-submenu">
+            <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
+            <ul class="dropdown-menu">
+
+              <!-- ABUJA -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/Abuja/Azuza.html">Azuza Plaza</a></li>
+                </ul>
+              </li>
+
+              <!-- KANO -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+                </ul>
+              </li>
+
+              <!-- LAGOS -->
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/Projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
         </ul>
-    </nav>
+      </li>
+
+      <li><a href="/contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
 </header>
 
 <!-- ========================= -->
