@@ -833,6 +833,8 @@ footer{
     margin-left: 0;
   }
 }
+  #main-nav li > ul { display:none; }
+#main-nav li.open > ul { display:block !important; }
 </style>
   
 
@@ -1156,41 +1158,68 @@ footer{
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("#main-nav");
   const btn = document.querySelector(".menu-toggle");
-  if (btn && nav) {
-    btn.addEventListener("click", () => {
-      const open = nav.classList.toggle("nav-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  }
+  const closeBtn = document.querySelector(".menu-close"); // if you added ✕ button
 
   if (!nav) return;
 
-  const closeAll = () => {
+  // Open/close main mobile menu
+  const openMenu = () => {
+    nav.classList.add("nav-open");
+    btn?.setAttribute("aria-expanded", "true");
+  };
+
+  const closeMenu = () => {
+    nav.classList.remove("nav-open");
+    btn?.setAttribute("aria-expanded", "false");
+    // also close dropdown branches
     nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
   };
 
+  btn?.addEventListener("click", () => {
+    nav.classList.contains("nav-open") ? closeMenu() : openMenu();
+  });
+
+  closeBtn?.addEventListener("click", closeMenu);
+
+  // Dropdown toggle (supports deep nesting)
   nav.addEventListener("click", (e) => {
     const toggle = e.target.closest("a.dropdown-toggle");
     if (!toggle || !nav.contains(toggle)) return;
 
     const submenu = toggle.nextElementSibling;
-    if (!submenu || submenu.tagName !== "UL") return;
+    if (!submenu || submenu.tagName !== "UL") return; // normal links navigate
 
     e.preventDefault();
 
     const li = toggle.closest("li");
     if (!li) return;
 
-    // close siblings at same level
-    const parent = li.parentElement;
-    if (parent) [...parent.children].forEach(sib => { if (sib !== li) sib.classList.remove("open"); });
+    // close only siblings at same UL level (and their children)
+    const parentUl = li.parentElement;
+    if (parentUl) {
+      [...parentUl.children].forEach((sib) => {
+        if (sib !== li) {
+          sib.classList.remove("open");
+          sib.querySelectorAll("li.open").forEach(x => x.classList.remove("open"));
+        }
+      });
+    }
 
     li.classList.toggle("open");
   });
 
-  // close dropdowns when tapping outside the nav (optional)
+  // Close menu when tapping outside
   document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !(btn && btn.contains(e.target))) closeAll();
+    const clickedInsideNav = nav.contains(e.target);
+    const clickedMenuBtn = btn && btn.contains(e.target);
+    if (nav.classList.contains("nav-open") && !clickedInsideNav && !clickedMenuBtn) {
+      closeMenu();
+    }
+  });
+
+  // Esc closes menu (desktop)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
   });
 });
 </script>
