@@ -561,6 +561,16 @@ footer{
 }
 #main-nav li > ul { display: none; }
 #main-nav li.open > ul { display: block; }
+  
+  /* closed by default */
+#main-nav li > ul { 
+  display: none; 
+}
+
+/* opened by JS */
+#main-nav li.open > ul { 
+  display: block; 
+}
 </style>
   
 
@@ -876,23 +886,65 @@ footer{
     });
   },{threshold:0.18});
   document.querySelectorAll('.section').forEach(s=>observer.observe(s));
-  </script>
-
-  <!-- Keep your slideshow override script (unchanged behaviour but left in place) -->
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("#main-nav .dropdown-toggle").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const li = a.closest("li");
-      const submenu = li && li.querySelector(":scope > ul");
-      if (submenu) {
-        e.preventDefault();
-        li.classList.toggle("open");
-      }
+  const nav = document.querySelector("#main-nav");
+  if (!nav) return;
+
+  // Close ALL open dropdowns
+  const closeAll = () => {
+    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
+  };
+
+  // Close sibling dropdowns at the same level (keeps it tidy)
+  const closeSiblings = (li) => {
+    const siblings = li.parentElement?.children || [];
+    [...siblings].forEach(sib => {
+      if (sib !== li) sib.classList.remove("open");
     });
+  };
+
+  // Toggle dropdowns
+  nav.addEventListener("click", (e) => {
+    const toggle = e.target.closest(".dropdown-toggle");
+    if (!toggle || !nav.contains(toggle)) return;
+
+    const li = toggle.closest("li");
+    const submenu = li?.querySelector(":scope > ul");
+    if (!submenu) return; // normal link, let it navigate
+
+    e.preventDefault();
+
+    const willOpen = !li.classList.contains("open");
+    // Close siblings at the same level
+    closeSiblings(li);
+
+    // If opening, keep parents open and open this
+    if (willOpen) {
+      li.classList.add("open");
+      // Ensure all ancestor <li> stay open so nested menus remain visible
+      let parentLi = li.parentElement?.closest("li");
+      while (parentLi && nav.contains(parentLi)) {
+        parentLi.classList.add("open");
+        parentLi = parentLi.parentElement?.closest("li");
+      }
+    } else {
+      // If closing the same one, close it and all children
+      li.classList.remove("open");
+      li.querySelectorAll("li.open").forEach(x => x.classList.remove("open"));
+    }
+  });
+
+  // Close when clicking outside the nav
+  document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target)) closeAll();
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll();
   });
 });
 </script>
-
 </body>
 </html>
