@@ -878,79 +878,81 @@ footer{
 
   <footer style="text-align:center;padding:40px 0;color:#777">© 2025 McDream Concepts. All Rights Reserved.</footer>
 
+
   <!-- Intersection reveal -->
   <script>
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('inview'); }
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("inview");
+          });
+        },
+        { threshold: 0.18 }
+      );
+
+      document.querySelectorAll(".section").forEach((s) => observer.observe(s));
     });
-  },{threshold:0.18});
-  document.querySelectorAll('.section').forEach(s=>observer.observe(s));
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("#main-nav");
-  if (!nav) return;
+  </script>
 
- <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("#main-nav");
-  if (!nav) return;
+  <!-- Dropdown open/close (click + outside close + esc) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const nav = document.querySelector("#main-nav");
+      if (!nav) return;
 
-  const closeAll = () => {
-    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
-  };
+      const closeAll = () => {
+        nav.querySelectorAll("li.open").forEach((li) => li.classList.remove("open"));
+      };
 
-  const closeSiblings = (li) => {
-    const parent = li.parentElement;
-    if (!parent) return;
-    [...parent.children].forEach(sib => {
-      if (sib !== li) sib.classList.remove("open");
+      const closeSiblings = (li) => {
+        const parent = li.parentElement;
+        if (!parent) return;
+        [...parent.children].forEach((sib) => {
+          if (sib !== li) sib.classList.remove("open");
+        });
+      };
+
+      nav.addEventListener("click", (e) => {
+        const toggle = e.target.closest("a.dropdown-toggle");
+        if (!toggle || !nav.contains(toggle)) return;
+
+        const submenu = toggle.nextElementSibling;
+        if (!submenu || submenu.tagName !== "UL") return;
+
+        e.preventDefault();
+
+        const li = toggle.closest("li");
+        if (!li) return;
+
+        const willOpen = !li.classList.contains("open");
+        closeSiblings(li);
+
+        if (willOpen) {
+          li.classList.add("open");
+
+          // keep parents open (nested menus)
+          let p = li.parentElement?.closest("li");
+          while (p && nav.contains(p)) {
+            p.classList.add("open");
+            p = p.parentElement?.closest("li");
+          }
+        } else {
+          li.classList.remove("open");
+          li.querySelectorAll("li.open").forEach((x) => x.classList.remove("open"));
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) closeAll();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAll();
+      });
     });
-  };
-
-  nav.addEventListener("click", (e) => {
-    const toggle = e.target.closest("a.dropdown-toggle");
-    if (!toggle || !nav.contains(toggle)) return;
-
-    // submenu must be the next element after the <a>
-    const submenu = toggle.nextElementSibling;
-    if (!submenu || submenu.tagName !== "UL") return;
-
-    e.preventDefault();
-
-    const li = toggle.closest("li");
-    if (!li) return;
-
-    const willOpen = !li.classList.contains("open");
-
-    closeSiblings(li);
-
-    if (willOpen) {
-      li.classList.add("open");
-
-      // keep parents open for nested menus
-      let p = li.parentElement?.closest("li");
-      while (p && nav.contains(p)) {
-        p.classList.add("open");
-        p = p.parentElement?.closest("li");
-      }
-    } else {
-      li.classList.remove("open");
-      li.querySelectorAll("li.open").forEach(x => x.classList.remove("open"));
-    }
-  });
-
-  // close when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target)) closeAll();
-  });
-
-  // close on Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAll();
-  });
-});
-</script>
-</script>
+  </script>
+</body>
+</html>
 </body>
 </html>
