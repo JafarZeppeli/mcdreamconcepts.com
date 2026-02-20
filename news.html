@@ -369,6 +369,79 @@ Thanks to NILE University for having us, and thanks to all the students who talk
   });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("#main-nav");
+  const btn = document.querySelector(".menu-toggle");
+  const closeBtn = document.querySelector(".menu-close");
+
+  if (!nav) return;
+
+  const closeAllDropdowns = () => {
+    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
+  };
+
+  const closeMenu = () => {
+    closeAllDropdowns();
+    nav.classList.remove("nav-open");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+  const openMenu = () => {
+    nav.classList.add("nav-open");
+    btn?.setAttribute("aria-expanded", "true");
+  };
+
+  // Toggle mobile menu
+  btn?.addEventListener("click", () => {
+    nav.classList.contains("nav-open") ? closeMenu() : openMenu();
+  });
+
+  // Optional X close button
+  closeBtn?.addEventListener("click", closeMenu);
+
+  // Dropdown handling (supports deep nesting)
+  nav.addEventListener("click", (e) => {
+    const toggle = e.target.closest("a.dropdown-toggle");
+    if (!toggle || !nav.contains(toggle)) return;
+
+    const submenu = toggle.nextElementSibling;
+    if (!submenu || submenu.tagName !== "UL") return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const li = toggle.closest("li");
+    if (!li) return;
+
+    // close siblings at same level
+    const parentUl = li.parentElement;
+    if (parentUl) {
+      [...parentUl.children].forEach((sib) => {
+        if (sib !== li) {
+          sib.classList.remove("open");
+          sib.querySelectorAll("li.open").forEach(x => x.classList.remove("open"));
+        }
+      });
+    }
+
+    li.classList.toggle("open");
+  });
+
+  // ✅ Close EVERYTHING when clicking outside
+  document.addEventListener("click", (e) => {
+    const insideNav = nav.contains(e.target);
+    const insideBtn = btn && btn.contains(e.target);
+    if (!insideNav && !insideBtn) closeMenu();
+  });
+
+  // Esc key closes everything
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+});
+</script>
 
 </body>
 </html>
