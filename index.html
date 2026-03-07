@@ -439,42 +439,44 @@
     </ul>
   </div>
 
-  <div class="footer-column footer-faq">
-    <h3>Frequently Objection Quesions</h3>
+<div class="footer-column footer-faq">
+  <h3>Frequently Asked Questions</h3>
 
-    <div class="faq-item">
-      <button class="faq-question">Is there any flexibility or room for negotiation in the asking price?</button>
-      <div class="faq-answer">
-        <p>While our current price reflects the market value and premium features of the property, we are open to discussing the terms of sale. We can certainly look at the overall package to ensure the investment aligns with your budget and expectations.</p>
-      </div>
-    </div>
+  <details class="faq-item">
+    <summary>Is there any flexibility or room for negotiation in the asking price?</summary>
+    <p>
+      While our current price reflects the market value and premium features of the property, we are open to discussing the terms of sale. We can certainly look at the overall package to ensure the investment aligns with your budget and expectations.
+    </p>
+  </details>
 
-    <div class="faq-item">
-      <button class="faq-question">What is the projected Return on Investment (ROI) for this project?</button>
-      <div class="faq-answer">
-        <p>Based on current market appreciation trends and rental yields in this location, we project a competitive ROI. I can provide you with a detailed breakdown of historical data and future forecasts to show how this asset is positioned for growth</p>
-      </div>
-    </div>
+  <details class="faq-item">
+    <summary>What is the projected Return on Investment (ROI) for this project?</summary>
+    <p>
+      Based on current market appreciation trends and rental yields in this location, we project a competitive ROI. I can provide you with a detailed breakdown of historical data and future forecasts to show how this asset is positioned for growth.
+    </p>
+  </details>
 
-    <div class="faq-item">
-      <button class="faq-question">Is it more beneficial to wait for a potential drop in interest rates?</button>
-      <div class="faq-answer">
-        <p>While waiting for lower rates is a strategy, property prices often appreciate faster than the savings gained from a marginal rate drop. By securing the property now at today's price, you can benefit from immediate equity growth and look into refinancing options later if rates decrease.</p>
-      </div>
-    </div>
+  <details class="faq-item">
+    <summary>Is it more beneficial to wait for a potential drop in interest rates?</summary>
+    <p>
+      While waiting for lower rates is a strategy, property prices often appreciate faster than the savings gained from a marginal rate drop. By securing the property now at today's price, you can benefit from immediate equity growth and look into refinancing options later if rates decrease.
+    </p>
+  </details>
 
-    <div class="faq-item">
-      <button class="faq-question">What are the legal implications if I default on my payment plan?</button>
-      <div class="faq-answer">
-        <p>Our contracts include a grace period and restructuring options to support our clients through unforeseen challenges. However, consistent default may lead to a rescission process; I recommend reviewing the 'Default' clause in our agreement to understand the specific timelines and refund policies</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-question">To what extent can I customize the unit beyond the standard structure?</button>
-      <div class="faq-answer">
-        <p>Internal modifications that do not compromise the structural integrity or the external aesthetic of the building are generally permitted. We would just need your proposed architectural plans for review and approval by our technical team before work begins.</p>
-      </div>
-    </div>
+  <details class="faq-item">
+    <summary>What are the legal implications if I default on my payment plan?</summary>
+    <p>
+      Our contracts include a grace period and restructuring options to support our clients through unforeseen challenges. However, consistent default may lead to a rescission process; I recommend reviewing the "Default" clause in our agreement to understand the specific timelines and refund policies.
+    </p>
+  </details>
+
+  <details class="faq-item">
+    <summary>To what extent can I customize the unit beyond the standard structure?</summary>
+    <p>
+      Internal modifications that do not compromise the structural integrity or the external aesthetic of the building are generally permitted. We would just need your proposed architectural plans for review and approval by our technical team before work begins.
+    </p>
+  </details>
+</div>
   </div>
 
   <div class="footer-column">
@@ -694,24 +696,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 </script>
-<script>
-const faqQuestions = document.querySelectorAll(".faq-question");
 
-faqQuestions.forEach(question => {
-  question.addEventListener("click", () => {
-
-    question.classList.toggle("active");
-
-    const answer = question.nextElementSibling;
-
-    if (answer.style.maxHeight) {
-      answer.style.maxHeight = null;
-    } else {
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    }
-
-  });
-});
-</script>
 </body>
 </html>
