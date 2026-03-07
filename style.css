@@ -3140,38 +3140,47 @@ header.scrolled .brand img {
   min-width: 260px;
 }
 
-.footer-faq .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
+.footer-faq h3 {
+  margin-bottom: 15px;
+  color: #fff;
 }
 
-.footer-faq .faq-question {
-  width: 100%;
-  background: transparent;
-  border: none;
+.footer-faq .faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 0;
+}
+
+.footer-faq .faq-item summary {
+  list-style: none;
+  cursor: pointer;
   color: #fff;
-  text-align: left;
   font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
-  padding: 8px 0;
+  line-height: 1.5;
   position: relative;
+  padding-right: 24px;
 }
 
-.footer-faq .faq-question::after {
+.footer-faq .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.footer-faq .faq-item summary::after {
   content: "+";
   position: absolute;
   right: 0;
   top: 0;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.footer-faq .faq-question.active::after {
+.footer-faq .faq-item[open] summary::after {
   content: "−";
 }
 
-.footer-faq .faq-answer p {
-  margin-top: 8px;
+.footer-faq .faq-item p {
+  margin: 10px 0 0;
   font-size: 14px;
   line-height: 1.6;
+  color: #f2f2f2;
 }
