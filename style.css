@@ -3188,22 +3188,33 @@ header.scrolled .brand img {
 }
 
 
-/* ===== FORCE STICKY HEADER OVERRIDE ===== */
+/* ===== HARD STICKY HEADER OVERRIDE ===== */
 
-.header-bar {
+/* background strip */
+.header-bar,
+body .header-bar,
+html body .header-bar {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
   height: 95px !important;
+  z-index: 9998 !important;
   background: rgba(70, 70, 70, 0.40) !important;
   backdrop-filter: blur(2px) !important;
-  z-index: 9998 !important;
+  -webkit-backdrop-filter: blur(2px) !important;
   pointer-events: none !important;
 }
 
-header {
+/* actual header/menu container */
+header,
+body header,
+html body header,
+body > header,
+.hero header,
+.banner header,
+.slideshow-container header {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -3213,51 +3224,20 @@ header {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  padding: 30px 80px !important;
   box-sizing: border-box !important;
+  padding: 30px 80px !important;
   background: transparent !important;
   transform: none !important;
 }
 
-header nav,
-header ul,
-header li,
-header a,
-header button,
-header .dropdown,
-header .dropdown-menu,
-header .menu-toggle {
+/* keep menu clickable */
+header *,
+body header *,
+html body header * {
   pointer-events: auto !important;
 }
 
-header * {
-  z-index: inherit;
-}
-
-/* keeps first section from jumping under the header too much */
-.hero,
-.banner,
-.hero-section,
-.slideshow-container,
-main > section:first-child {
+/* stop first section from sitting under header */
+body {
   padding-top: 95px !important;
-}
-
-/* mobile */
-@media (max-width: 768px) {
-  header {
-    padding: 20px 20px !important;
-  }
-
-  .header-bar {
-    height: 85px !important;
-  }
-
-  .hero,
-  .banner,
-  .hero-section,
-  .slideshow-container,
-  main > section:first-child {
-    padding-top: 85px !important;
-  }
 }
