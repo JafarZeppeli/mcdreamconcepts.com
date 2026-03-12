@@ -42,14 +42,13 @@ body {
 }
 
 .header-bar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 95px; 
+  height: 95px;
   background: rgba(70, 70, 70, 0.40);
-  z-index: 2;
-  pointer-events: none;
+  z-index: 9999;
   backdrop-filter: blur(2px);
 }
 /* ====== STATS SECTION ====== */
