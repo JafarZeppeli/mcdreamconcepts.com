@@ -459,7 +459,102 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script src="../../script.js"></script>
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img id="lightbox-img" alt="Expanded gallery image">
+  <span class="next">&#10095;</span>
+  <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
+</div>
+    <script>
+const images = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const counter = document.getElementById("lightbox-counter");
+const closeBtn = document.querySelector(".close");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
 
+let index = 0;
+let startX = 0;
+let endX = 0;
+
+function updateLightboxImage() {
+  lightboxImg.src = images[index].src;
+  lightboxImg.alt = images[index].alt || `Gallery image ${index + 1}`;
+  counter.textContent = `${index + 1} / ${images.length}`;
+}
+
+function openLightbox(i) {
+  index = i;
+  updateLightboxImage();
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function showNextImage() {
+  index = (index + 1) % images.length;
+  updateLightboxImage();
+}
+
+function showPrevImage() {
+  index = (index - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+
+images.forEach((img, i) => {
+  img.addEventListener("click", () => {
+    openLightbox(i);
+  });
+});
+
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", showNextImage);
+prevBtn.addEventListener("click", showPrevImage);
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showNextImage();
+  if (e.key === "ArrowLeft") showPrevImage();
+});
+
+/* Swipe support */
+lightbox.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", () => {
+  let diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      showNextImage();
+    } else {
+      showPrevImage();
+    }
+  }
+
+  startX = 0;
+  endX = 0;
+});
+</script>
 
 </body>
 </html>
