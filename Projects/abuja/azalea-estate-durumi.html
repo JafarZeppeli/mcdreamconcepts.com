@@ -79,7 +79,59 @@ section h2 {
     font-size: 1.15rem;
     padding: 0.9rem 2rem;
 }
+.gallery-img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
     </style>
 </head>
 
@@ -253,18 +305,18 @@ section h2 {
 <!-- GALLERY                   -->
 <!-- ========================= -->
 <section class="project-section">
-    <h2>Image Gallery</h2>
+  <h2>Image Gallery</h2>
 
-    <div class="gallery-grid">
-        <img src="azalea-estate-durumi/azalea1.png">
-        <img src="azalea-estate-durumi/azalea2.png">
-         <img src="azalea-estate-durumi/azalea3.jpeg">
-         <img src="azalea-estate-durumi/azalea4.jpeg">
-         <img src="azalea-estate-durumi/azalea5.jpeg">
-          <img src="azalea-estate-durumi/azalea6.jpeg">
-          <img src="azalea-estate-durumi/azalea7.jpeg">
-           <img src="azalea-estate-durumi/azalea8.jpeg">
-    </div>
+  <div class="gallery-grid">
+    <img src="azalea-estate-durumi/azalea1.png" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea2.png" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea3.jpeg" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea4.jpeg" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea5.jpeg" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea6.jpeg" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea7.jpeg" class="gallery-img">
+    <img src="azalea-estate-durumi/azalea8.jpeg" class="gallery-img">
+  </div>
 </section>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -281,6 +333,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script src="../../script.js"></script>
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="next">&#10095;</span>
+</div>
+    <script>
+const images = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
 
+let index = 0;
+
+images.forEach((img, i) => {
+  img.addEventListener("click", () => {
+    index = i;
+    showImage();
+    lightbox.classList.add("active");
+  });
+});
+
+function showImage() {
+  lightboxImg.src = images[index].src;
+}
+
+document.querySelector(".close").onclick = () => {
+  lightbox.classList.remove("active");
+};
+
+document.querySelector(".next").onclick = () => {
+  index = (index + 1) % images.length;
+  showImage();
+};
+
+document.querySelector(".prev").onclick = () => {
+  index = (index - 1 + images.length) % images.length;
+  showImage();
+};
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
+</script>
 </body>
 </html>
