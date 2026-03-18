@@ -355,29 +355,34 @@ header .arrow{
     <div class="box">
       <h3>Submit Your Details</h3>
       <p>Register as an agent or apply for a career opening.</p>
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <select required>
-          <option value="">Select Position</option>
-          <option value="agent">Agent</option>
-          <option value="career">Career</option>
-        </select>
-        <textarea placeholder="Additional Information"></textarea>
-        <button type="submit">Submit Details</button>
-      </form>
+  <form action="mailto:mcdreamconceptsltd@gmail.com" method="POST" enctype="text/plain">
+  <input name="Full Name" type="text" placeholder="Full Name" required>
+  <input name="Email" type="email" placeholder="Email Address" required>
+  <input name="Phone" type="tel" placeholder="Phone Number" required>
+
+  <select name="Position" required>
+    <option value="">Select Position</option>
+    <option value="agent">Agent</option>
+    <option value="career">Career</option>
+  </select>
+
+  <textarea name="Message" placeholder="Additional Information"></textarea>
+
+  <button type="submit">Submit Details</button>
+</form>
     </div>
 
     <div class="box">
       <h3>Submit Your CV</h3>
       <p>Upload your CV to apply directly for a position.</p>
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="file" accept=".pdf,.doc,.docx" required>
-        <button type="submit">Upload CV</button>
-      </form>
+  <form action="mailto:mcdreamconceptsltd@gmail.com" method="POST" enctype="text/plain">
+  <input name="Full Name" type="text" placeholder="Full Name" required>
+  <input name="Email" type="email" placeholder="Email Address" required>
+
+  <textarea name="Message" placeholder="Paste link to your CV (Google Drive, etc)"></textarea>
+
+  <button type="submit">Submit CV</button>
+</form>
     </div>
   </div>
 </div>
