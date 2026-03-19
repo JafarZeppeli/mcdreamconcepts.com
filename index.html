@@ -696,6 +696,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 </script>
+<div id="eid-overlay">
+  <div class="eid-content">
+    <div class="moon"></div>
+    <h2>Eid Mubarak 🌙</h2>
+  </div>
+</div>
+ <script>
+function createConfetti() {
+  for (let i = 0; i < 80; i++) {
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    document.body.appendChild(confetti);
 
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.top = "-10px";
+    confetti.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+    confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+
+window.onload = createConfetti;
+</script>
 </body>
 </html>
