@@ -14,7 +14,14 @@
 
 <body class="homepage">
 
+<div id="easter-popup" class="easter-popup">
+  <div class="easter-content">
+    <h1>Happy Easter 🐣</h1>
+    <p>Wishing you joy, renewal, and happiness!</p>
+  </div>
+</div>
 
+<canvas id="easter-confetti"></canvas>
   <!-- HERO SECTION -->
 
   <section class="hero">
@@ -678,6 +685,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 </script>
+<script>
+const canvas = document.getElementById("easter-confetti");
+const ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const eggs = [];
+
+for (let i = 0; i < 80; i++) {
+  eggs.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 6 + 4,
+    d: Math.random() * 50
+  });
+}
+
+function drawEgg(x, y, r) {
+  ctx.beginPath();
+  ctx.ellipse(x, y, r, r * 1.3, 0, 0, Math.PI * 2);
+  ctx.fillStyle = `hsl(${Math.random()*360}, 70%, 70%)`;
+  ctx.fill();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  eggs.forEach((e, i) => {
+    drawEgg(e.x, e.y, e.r);
+  });
+  update();
+}
+
+let angle = 0;
+
+function update() {
+  angle += 0.01;
+  eggs.forEach((e) => {
+    e.y += Math.cos(angle + e.d) + 1 + e.r / 2;
+    e.x += Math.sin(angle) * 2;
+
+    if (e.y > canvas.height) {
+      e.y = -10;
+      e.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+setInterval(draw, 20);
+
+// Auto remove popup after 5 seconds
+setTimeout(() => {
+  const popup = document.getElementById("easter-popup");
+  popup.style.opacity = "0";
+  setTimeout(() => popup.remove(), 500);
+
+  canvas.style.opacity = "0";
+  setTimeout(() => canvas.remove(), 500);
+}, 5000);
+</script>
 </body>
 </html>
