@@ -790,11 +790,28 @@ setInterval(draw, 20);
 // Auto remove popup after 5 seconds
 setTimeout(() => {
   const popup = document.getElementById("easter-popup");
-  popup.style.opacity = "0";
-  setTimeout(() => popup.remove(), 500);
+  const canvasEl = document.getElementById("easter-confetti");
 
-  canvas.style.opacity = "0";
-  setTimeout(() => canvas.remove(), 500);
+  // Fade out popup safely
+  if (popup) {
+    popup.style.transition = "opacity 0.5s ease";
+    popup.style.opacity = "0";
+
+    setTimeout(() => {
+      if (popup.parentNode) popup.parentNode.removeChild(popup);
+    }, 500);
+  }
+
+  // Fade out canvas safely
+  if (canvasEl) {
+    canvasEl.style.transition = "opacity 0.5s ease";
+    canvasEl.style.opacity = "0";
+
+    setTimeout(() => {
+      if (canvasEl.parentNode) canvasEl.parentNode.removeChild(canvasEl);
+    }, 500);
+  }
+
 }, 5000);
 </script>
 </body>
