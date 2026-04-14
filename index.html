@@ -436,12 +436,7 @@
     </p>
   </details>
 
- <details class="faq-item">
-    <summary>What is the difference between a Deed of Assignment and a Certificate of Occupancy (C of O)?</summary>
-    <p>
-      C of O is the primary state title; Deed transfers ownership to you.
-    </p>
-  </details>
+
 
  <details class="faq-item">
     <summary>Can I resell my property after purchase?</summary>
@@ -469,27 +464,56 @@
    Yes, via written request.
     </p>
  </details>
-   <details class="faq-item">
-    <summary>Are there penalties for late payment? </summary>
-    <p>
-    
-    </p>
-  </details>
+
  <details class="faq-item">
     <summary> Can I make part payments instead of full installments?</summary>
     <p>
     Yes, if they meet the minimum installment.
     </p>
   </details>
+ 
+
+
+
+
  <details class="faq-item">
-    <summary> How do I get a receipt or confirmation for my payment?/summary>
-    <p>
-   Via email or physical copy after verification.
-    </p>
-  </details>
-</div>
+  <summary>Are the funds available?</summary>
+
+  <div class="investment-options">
+    <button type="button" onclick="selectOption(this, 'yes')">Yes</button>
+    <button type="button" onclick="selectOption(this, 'no')">No</button>
+  </div>
+  <input type="hidden" id="fundsAvailable">
+
+  
+</details>
+ 
+<details class="faq-item">
+  <summary>How soon are you looking to invest?</summary>
+
+  <div class="investment-options">
+    <button type="button" onclick="selectOption(this, 'immediately')">Immediately</button>
+    <button type="button" onclick="selectOption(this, '1-3 months')">1–3 Months</button>
+    <button type="button" onclick="selectOption(this, '3-6 months')">3–6 Months</button>
+    <button type="button" onclick="selectOption(this, 'just exploring')">Just Exploring</button>
   </div>
 
+  <input type="hidden" id="investmentTimeframe">
+</details>
+ 
+<details class="faq-item">
+  <summary>Are the funds available?</summary>
+
+  <div class="investment-options">
+    <button type="button" onclick="selectOption(this, 'yes')">Yes</button>
+    <button type="button" onclick="selectOption(this, 'no')">No</button>
+  </div>
+
+  <input type="hidden" id="fundsAvailable">
+</details>
+ 
+  </div>
+</div>
   <div class="footer-column">
     <h3>Contact</h3>
     <p>+234 816 667 8630</p>
@@ -707,6 +731,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
  
 </script>
+<script>
+function selectOption(button, value) {
+  const container = button.parentElement;
 
+  // remove active state in this group only
+  container.querySelectorAll("button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  // store value in the hidden input inside same block
+  const input = container.parentElement.querySelector("input");
+  if (input) input.value = value;
+}
+</script>
 </body>
 </html>
