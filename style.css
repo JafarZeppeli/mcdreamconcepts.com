@@ -3187,3 +3187,25 @@ header.scrolled .brand img {
   line-height: 1.6;
   color: #f2f2f2;
 }
+.investment-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.investment-options button {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.investment-options button.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+  
