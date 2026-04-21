@@ -135,26 +135,16 @@ li:hover > .dropdown-menu{
 ================================================================ */
 
 .hero{
-    height:520px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    text-align:center;
-    color:white;
-}
+    position: relative;
+    min-height: 100vh; /* full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('us.jpeg') no-repeat center;
 
-.hero{
-    position:relative;
-    min-height:75vh;
-    background-image:url('us.jpeg');
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center center;
-
-    /* 🔒 force native rendering */
-    filter:none;
-    transform:none;
+    background-size: cover;
 }
 
 .hero::before{
