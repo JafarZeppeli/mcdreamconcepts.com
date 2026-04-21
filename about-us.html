@@ -136,31 +136,41 @@ li:hover > .dropdown-menu{
 
 .hero{
     position: relative;
-    min-height: 100vh; /* full screen */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    background: url('us.jpeg') no-repeat center;
 
-    background-size: cover;
+
+    background-image: url('us.jpeg');
+    background-repeat: no-repeat;
+
+    background-size: 90%;
+
+    /* keeps it nicely positioned */
+    background-position: center;
+
+    /* fills empty space cleanly */
+    background-color: #000;
 }
 
+/* remove any hidden overlay issues */
 .hero::before{
-    display:none !important;
+    display: none !important;
 }
 
+/* text styling */
 .hero-inner h1{
-    font-size:50px;
-    font-weight:800;
+    font-size: 50px;
+    font-weight: 800;
 }
 
 .hero-inner p{
-    font-size:18px;
-    opacity:.92;
+    font-size: 18px;
+    opacity: 0.92;
 }
-
 
 /* ================================================================
     SECTIONS
