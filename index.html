@@ -569,48 +569,79 @@ observer.observe(statSection);
 </script>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const hero = document.querySelector(".hero");
-
-  // create fading layers
-  const layer1 = document.createElement("div");
-  const layer2 = document.createElement("div");
-
-  layer1.className = "heroLayer";
-  layer2.className = "heroLayer";
-
-  hero.prepend(layer1, layer2);
+  if (!hero) return;
 
   const slides = [
     "IMG_5382.jpg",
     "newbg.jpeg",
     "newbg2.jpeg",
     "newbg3.jpeg",
-    "newbg4.jpeg", 
+    "newbg4.jpeg",
     "mm5.jpg",
     "cam1.jpg",
     "residential.png",
   ];
 
+  // Create two layers for crossfade
+  const layer1 = document.createElement("div");
+  const layer2 = document.createElement("div");
+  layer1.className = "heroLayer";
+  layer2.className = "heroLayer";
+  hero.prepend(layer2, layer1); // layer1 on top
+
   let index = 0;
-  let showFirst = true;
+  let current = layer1;
+  let next = layer2;
+  let loaded = new Set();
 
-  function changeSlide() {
-    const show = showFirst ? layer1 : layer2;
-    const hide = showFirst ? layer2 : layer1;
-
-    show.style.backgroundImage = `url(${slides[index]})`;
-    show.style.opacity = 1;
-    hide.style.opacity = 0;
-
-    index = (index + 1) % slides.length;
-    showFirst = !showFirst;
+  // --- Preload a single image, returns a Promise ---
+  function preload(src) {
+    return new Promise((resolve) => {
+      if (loaded.has(src)) return resolve(src);
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        loaded.add(src);
+        resolve(src);
+      };
+      img.src = src;
+    });
   }
 
-  changeSlide();
-  setInterval(changeSlide, 2500);
+  // --- Show slide at given index ---
+  function showSlide(i) {
+    const src = slides[i];
+    next.style.backgroundImage = `url(${src})`;
+    next.style.opacity = 1;
+    current.style.opacity = 0;
 
+    // Swap references
+    [current, next] = [next, current];
+  }
+
+  // --- Start slideshow once first image is ready ---
+  async function init() {
+    // Load first image immediately — blocks until ready so no blank flash
+    await preload(slides[0]);
+    showSlide(0);
+
+    // Lazy-load the rest in the background after a short delay
+    setTimeout(() => {
+      slides.slice(1).forEach(src => preload(src));
+    }, 1500);
+
+    // Advance slides every 2.5s, but only if next image is already loaded
+    setInterval(async () => {
+      index = (index + 1) % slides.length;
+      await preload(slides[index]); // waits if not yet loaded, instant if already cached
+      showSlide(index);
+    }, 2500);
+  }
+
+  init();
 });
 </script>
 
