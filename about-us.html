@@ -2,1231 +2,1004 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us — McDream Concepts</title>
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <style>
 
-
-:root{
-    --brand:#ff4da6;
-    --brand-dark:#D97A7E;
-    --brand-soft:#ffeaf4;
-    --text-dark:#111;
-    --text-light:#747577;
-    --shadow:0 25px 65px rgba(0,0,0,.15);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:"Poppins",sans-serif;
-    background:#fafafa;
-    color:var(--text-dark);
-    line-height:1.65;
-}
-
-img, video{
-    max-width:100%;
-    display:block;
-}
-
-
-/* ================================================================
-    HEADER
-================================================================ */
-
-header{
-    position:fixed;
-    top:0;left:0;right:0;
-    z-index:9000;
-    display:flex;
-    align-items:center;
-    padding:14px 30px;
-    background:rgba(217,122,126,0.95);
     
-    box-shadow:0 14px 60px rgba(0,0,0,.22);
-}
-
-header img{
-    height:47px;
-}
-
-header nav{
-    flex:1;
-}
-
-header nav ul{
-    list-style:none;
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-left:30px;
-}
-
-header nav a{
-    color:white;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:600;
-    transition:.25s ease;
-}
-
-header nav a:hover{
-    opacity:.75;
-}
-
-.book-btn{
-    margin-left:auto;
-    padding:10px 20px;
-    background:#d43677;
-    color:#d43677;
-    border-radius:10px;
-    font-weight:700;
-    transition:.3s ease;
-}
-
-.book-btn:hover{
-    background:#ffd9ec;
-}
-
-.dropdown-menu,
-.submenu{
-    display:none;
-    position:absolute;
-    background:white;
-    padding:12px 0;
-    border-radius:10px;
-    box-shadow:0 16px 45px rgba(0,0,0,.18);
-}
-
-li:hover > .submenu,
-li:hover > .dropdown-menu{
-    display:block;
-}
-
-.submenu a,
-.dropdown-menu a{
-    display:block;
-    color:black !important;
-    padding:10px 18px;
-}
-
-.submenu a:hover,
-.dropdown-menu a:hover{
-    background:#ffe3f2;
-    color:#d73680 !important;
-}
-
-.arrow{
-    margin-left:4px;
-    font-weight:900;
-}
-
-
-/* ================================================================
-    HERO SECTION
-================================================================ */
-
-.hero{
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-
-
-    background-image: url('us.jpeg');
-    background-repeat: no-repeat;
-
-    background-size: 100%;
-
-    /* keeps it nicely positioned */
-    background-position: center;
-
-    /* fills empty space cleanly */
-    background-color: #000;
-}
-
-/* remove any hidden overlay issues */
-.hero::before{
-    display: none !important;
-}
-
-/* text styling */
-.hero-inner h1{
-    font-size: 50px;
-    font-weight: 800;
-}
-
-.hero-inner p{
-    font-size: 18px;
-    opacity: 0.92;
-}
-
-/* ================================================================
-    SECTIONS
-================================================================ */
-
-.section{
-    max-width:1200px;
-    margin:110px auto;
-    padding:0 22px;
-    opacity:0;
-    transform:translateY(40px);
-    transition:.7s ease;
-}
-
-.section.inview{
-    opacity:1;
-    transform:none;
-}
-
-.section h2{
-    text-align:center;
-    font-size:36px;
-    font-weight:700;
-    margin-bottom:26px;
-    color:var(--brand-dark);
-}
-
-.section p{
-    text-align:justify;
-    font-size:16px;
-    color:var(--text-light);
-}
-
-
-/* ================================================================
-    TWO COLUMN
-================================================================ */
-
-.two-col{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:50px;
-}
-
-.two-col video,
-.two-col img{
-    border-radius:18px;
-    box-shadow:var(--shadow);
-}
-
-@media(max-width:850px){
-    .two-col{
-        grid-template-columns:1fr;
-        text-align:center;
+    .about-hero {
+      position: relative;
+      height: 62vh;
+      min-height: 420px;
+      background-image: url('us.jpeg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
     }
-}
-
-
-/* ================================================================
-    COUNTERS
-================================================================ */
-
-.counters{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:22px;
-    margin-top:25px;
-}
-
-.counter{
-    background:#fff;
-    padding:18px;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0 12px 40px rgba(0,0,0,.1);
-}
-
-.counter h3{
-    font-size:40px;
-    font-weight:800;
-    color:#d83272;
-}
-
-.counter p{
-    margin-top:-5px;
-}
-
-
-/* ================================================================
-    SMART LIST
-================================================================ */
-
-.smart-list p{
-    background:white;
-    padding:13px 14px;
-    border-radius:8px;
-    margin:10px 0;
-    box-shadow:0 10px 40px rgba(0,0,0,.07);
-    border-left:4px solid var(--brand);
-}
-
-
-/* ================================================================
-    VISION & MISSION
-================================================================ */
-
-.vm-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-    gap:26px;
-}
-
-.vm-card{
-    background:white;
-    padding:24px;
-    border-radius:12px;
-    box-shadow:0 18px 55px rgba(0,0,0,.11);
-}
-
-.vm-card h3{
-    font-weight:700;
-    font-size:20px;
-}
-
-
-/* ================================================================
-    CORE VALUES
-================================================================ */
-
-.values-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:22px;
-}
-
-.value-item{
-    padding:22px;
-    background:white;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 18px 55px rgba(0,0,0,.11);
-}
-
-.value-item h4{
-    font-size:18px;
-    margin-bottom:8px;
-    color:#c43672;
-}
-
-
-/* ================================================================
-   MANAGEMENT & LEADERSHIP — ALIGNED & UNIFORM
-================================================================ */
-
-.management{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    width:100%;
-    gap:50px;
-}
-
-/* MANAGING DIRECTOR */
-.man-card.md{
-    width:100%;
-    max-width:700px;
-    background:white;
-    border-radius:18px;
-    padding:35px;
-    text-align:center;
-    border-top:10px solid rgba(255,77,166,.45);
-    box-shadow:0 34px 95px rgba(0,0,0,.18);
-    transition:.35s ease;
-}
-
-.man-card.md:hover{
-    transform:translateY(-10px);
-    box-shadow:0 42px 120px rgba(0,0,0,.25);
-}
-
-.man-card.md img{
-    width:280px;
-    height:280px;
-    object-fit:cover;
-    border-radius:50%;
-    border:8px solid rgba(255,77,166,.4);
-    margin:0 auto 16px;
-    display:block;
-}
-
-/* OTHER MANAGEMENT GRID */
-.management-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:32px;
-    width:100%;
-    max-width:1100px;
-}
-
-/* MANAGEMENT CARDS */
-.man-card{
-    background:white;
-    border-radius:14px;
-    padding:24px;
-    text-align:center;
-    border-top:6px solid rgba(255,77,166,.23);
-    box-shadow:0 18px 70px rgba(0,0,0,.13);
-    transition:.3s ease;
-}
-
-.man-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 28px 95px rgba(0,0,0,.18);
-}
-
-/* UNIFORM IMAGE SIZE */
-.man-card img{
-    width:150px;
-    height:150px;
-    object-fit:cover;
-    border-radius:50%;
-    border:5px solid rgba(255,77,166,.3);
-    margin:0 auto 10px;
-    display:block;
-}
-
-
-/* OTHERS */
-.management-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    width:100%;
-    max-width:1100px;
-    gap:30px;
-}
-
-.man-card{
-    background:white;
-    border-radius:14px;
-    padding:22px;
-    text-align:center;
-    border-top:6px solid rgba(255,77,166,.23);
-    box-shadow:0 18px 70px rgba(0,0,0,.13);
-    transition:.3s ease;
-}
-
-.man-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 28px 95px rgba(0,0,0,.18);
-}
-
-.man-card img{
-    width:145px;
-    height:145px;
-    border-radius:50%;
-    border:5px solid rgba(255,77,166,.3);
-    margin-bottom:8px;
-    object-fit:cover;
-}
-
-
-/* ================================================================
-    TEAM GRID
-================================================================ */
-
-.team-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:24px;
-}
-
-.team-card{
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 22px 65px rgba(0,0,0,.11);
-    transition:.3s ease;
-}
-
-.team-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 34px 100px rgba(0,0,0,.17);
-}
-
-.team-card img{
-    height:240px;
-    width:100%;
-    object-fit:cover;
-}
-
-.team-card .meta{
-    padding:14px;
-    text-align:center;
-}
-
-
-/* ================================================================
-    FOOTER
-================================================================ */
-
-footer{
-    text-align:center;
-    padding:40px 0;
-    color:#777;
-}
-
-
-@media(max-width:520px){
-    .hero-inner h1{ font-size:34px; }
-    .hero-inner p{ font-size:15px; }
-}
-
-
-
-/* ===== SHARP HERO OVERRIDE ===== */
-.hero{
-    position:relative;
-    min-height:75vh;
-    overflow:hidden;
-}
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    filter:none !important;
-    transform:none !important;
-    z-index:-1;
-}
-/* Full screen section */
-.why-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Two-column layout */
-.two-col {
-  flex: 1;
-  display: flex;
-  width: 100%;
-}
-
-/* Text side */
-.why-text {
-  flex: 1;
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-}
-
-/* Image side */
-.why-image {
-  flex: 1;
-}
-
-.why-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* fills entire side */
-  display: block;
-}
-
-/* Heading spacing */
-.why-section h2 {
-  text-align: center;
-  margin: 30px 0;
-}
-
-/* Mobile layout */
-@media (max-width: 768px) {
-  .two-col {
-    flex-direction: column;
-  }
-
-  .why-image {
-    height: 50vh;
-  }
-
-  .why-text {
-    padding: 30px;
-  }
-}
-#main-nav li > ul { display: none; }
-#main-nav li.open > ul { display: block; }
-  
-  /* closed by default */
-#main-nav li > ul { 
-  display: none; 
-}
-
-/* opened by JS */
-#main-nav li.open > ul { 
-  display: block; 
-}
-  /* Make absolute dropdowns anchor correctly */
-#main-nav li { position: relative; }
-
-/* Desktop dropdown look */
-#main-nav .submenu,
-#main-nav .dropdown-menu{
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  z-index: 99999;
-}
-
-/* Nested dropdowns (side) */
-#main-nav .dropdown-submenu > ul{
-  top: 0;
-  left: 100%;
-}
-
-/* ✅ MOBILE FIX */
-@media (max-width: 900px){
-  header{
-    padding: 12px 16px;
-  }
-
-  /* Stack menu items vertically on phone */
-  header nav ul{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin-left: 0;
-    padding-top: 12px;
-  }
-
-  /* Make dropdowns NOT absolute on mobile so they expand inside the flow */
-  #main-nav .submenu,
-  #main-nav .dropdown-menu{
-    position: static;
-    box-shadow: none;
-    border-radius: 10px;
-    width: 100%;
-    padding: 6px 0;
-  }
-
-  /* Indent nested levels so it looks clean */
-  #main-nav li > ul a{
-    padding-left: 22px;
-  }
-  #main-nav .dropdown-submenu > ul a{
-    padding-left: 34px;
-  }
-
-  /* Keep Book button full-width nice */
-  .book-btn{
-    display: inline-block;
-    margin-left: 0;
-  }
-}
-  /* fix: your book button text is invisible */
-.book-btn{ color:#fff; }
-
-/* hamburger button */
-.menu-toggle{
-  display:none;
-  margin-left:auto;
-  background:transparent;
-  border:2px solid rgba(255,255,255,.65);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:10px;
-  font-weight:800;
-}
-
-/* Desktop nav stays normal */
-#main-nav{ display:block; }
-
-/* Mobile layout */
-@media (max-width: 900px){
-  header{ flex-wrap: wrap; }
-
-  .menu-toggle{ display:inline-flex; align-items:center; gap:8px; }
-
-  /* hide nav until menu is opened */
-  #main-nav{
-    display:none;
-    width:100%;
-    margin-top:10px;
-  }
-  #main-nav.nav-open{ display:block; }
-
-  header nav ul{
-    flex-direction: column;
-    align-items:flex-start;
-    gap:10px;
-    margin-left:0;
-    padding:10px 0 0;
-    width:100%;
-  }
-
-  /* dropdowns should expand in-flow on mobile */
-  #main-nav .submenu,
-  #main-nav .dropdown-menu{
-    position: static;
-    box-shadow: none;
-    width:100%;
-    padding:6px 0;
-  }
-
-  #main-nav li > ul a{ padding-left:22px; }
-  #main-nav .dropdown-submenu > ul a{ padding-left:34px; }
-}
-  /* ===== OUR STORY (About section) ===== */
-.about-section{
-  display:flex;
-  gap:40px;
-  align-items:center;
-  margin-top:26px;
-}
-
-.about-text{
-  flex:1;
-  min-width:0;
-}
-
-.about-image{
-  flex:1;
-  min-width:0;
-}
-
-.about-image img{
-  width:100%;
-  height:auto;
-  border-radius:18px;
-  box-shadow:0 18px 55px rgba(0,0,0,.12);
-  object-fit:cover;
-}
-
-@media (max-width: 768px){
-  .section{
-    margin:70px auto;          
-    padding:0 18px;          
-  }
-
-  .about-section{
-    flex-direction:column;
-    gap:18px;
-  }
-
-  .about-text p{
-    font-size:16px;
-    line-height:1.9;           
-    text-align:left;           
-  }
-
-  .about-image{
-    width:100%;
-  }
-
-  .about-image img{
-    height:320px;             
-    width:100%;
-  }
-}
-
-/* Extra-small phones */
-@media (max-width: 420px){
-  .about-image img{
-    height:260px;
-  }
-}
-  /* ===== Mobile menu overlay panel ===== */
-@media (max-width: 900px){
-  /* nav becomes a panel */
-  #main-nav{
-    display:none;
-    position: fixed;
-    top: 70px;                 /* sits under header */
-    left: 12px;
-    right: 12px;
-    max-height: calc(100vh - 90px);
-    overflow: auto;
-    background: rgba(255,255,255,0.98);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.25);
-    padding: 12px 12px 14px;
-    z-index: 99999;
-  }
-
-  #main-nav.nav-open{ display:block; }
-
-  /* menu close button (inside panel) */
-  .menu-close{
-    display: inline-flex;
-    align-items:center;
-    justify-content:center;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    border: none;
-    background: rgba(0,0,0,.06);
-    color: #111;
-    font-size: 20px;
-    font-weight: 900;
-    margin-left: auto;
-    cursor: pointer;
-  }
-
-  /* vertical menu layout */
-  header nav ul{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    margin-left: 0;
-    padding: 10px 0 0;
-    width: 100%;
-  }
-
-  header nav a{
-    color:#111;                 /* readable on white panel */
-    display:block;
-    padding: 12px 12px;
-    border-radius: 12px;
-  }
-
-  header nav a:hover{
-    opacity:1;
-    background: rgba(255,77,166,.10);
-  }
-
-  /* dropdowns expand within the panel (not absolute) */
-  #main-nav .submenu,
-  #main-nav .dropdown-menu{
-    position: static !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    display: none;
-  }
-
-  /* show dropdown when open */
-  #main-nav li.open > ul{
-    display:block !important;
-  }
-
-  /* indent submenu items */
-  #main-nav li > ul a{
-    padding-left: 26px;
-  }
-  #main-nav .dropdown-submenu > ul a{
-    padding-left: 40px;
-  }
-
-  /* CTA button style in the panel */
-  .book-btn{
-    width: 100%;
-    text-align: center;
-    color: #fff !important;
-    background: #d43677;
-    margin-left: 0;
-  }
-}
-  #main-nav li > ul { display:none; }
-#main-nav li.open > ul { display:block !important; }
-</style>
-  
 
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(10,10,10,0.80) 0%,
+        rgba(60,10,18,0.50) 55%,
+        rgba(123,30,46,0.30) 100%
+      );
+      z-index: 1;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--burgundy);
+      z-index: 3;
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 7% 56px;
+      color: #fff;
+    }
+
+    .about-hero-content .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .about-hero-content h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    /* ── SHARED SECTION BASE ─────────────────────────────── */
+    .ab-section {
+      padding: 90px 7%;
+      position: relative;
+    }
+
+    .ab-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .ab-section-title {
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #111;
+      margin-bottom: 40px;
+      padding-bottom: 18px;
+      position: relative;
+    }
+
+    .ab-section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 44px; height: 3px;
+      background: var(--burgundy);
+    }
+
+    /* ── OUR STORY ───────────────────────────────────────── */
+    .story-section { background: #fff; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-text p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .story-image {
+      position: relative;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+
+    /* Decorative frame */
+    .story-image::before {
+      content: "";
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--burgundy);
+      border-radius: 4px;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    .story-image img { position: relative; z-index: 1; }
+
+    /* ── COUNTERS ────────────────────────────────────────── */
+    .counters-strip {
+      background: #0d0d0d;
+      padding: 0;
+    }
+
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .counter-box {
+      padding: 56px 30px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.28s ease;
+    }
+
+    .counter-box:last-child { border-right: none; }
+    .counter-box:hover { background: rgba(123,30,46,0.18); }
+
+    .counter-box h3 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .counter-box h3 span { color: var(--burgundy); }
+
+    .counter-box p {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── VISION & MISSION ────────────────────────────────── */
+    .vm-section { background: #f8f6f4; }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .vm-card {
+      background: #fff;
+      padding: 40px 36px;
+      border-radius: 4px;
+      border: 1px solid #e8e8e8;
+      border-top: 3px solid var(--burgundy);
+      transition: box-shadow 0.28s ease, transform 0.28s ease;
+    }
+
+    .vm-card:hover {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+      transform: translateY(-4px);
+    }
+
+    .vm-card .vm-icon {
+      font-size: 28px;
+      color: var(--burgundy);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .vm-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #111;
+      margin-bottom: 14px;
+    }
+
+    .vm-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    /* vm image card */
+    .vm-card.vm-image-card {
+      padding: 0;
+      overflow: hidden;
+      border-top: none;
+    }
+
+    .vm-card.vm-image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── WHY CHOOSE US ───────────────────────────────────── */
+    .why-section { background: #fff; padding: 0; }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .why-text {
+      padding: 80px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .why-text .why-item {
+      margin-bottom: 40px;
+    }
+
+    .why-text .why-item:last-child { margin-bottom: 0; }
+
+    .why-item h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 10px;
+    }
+
+    .why-item p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .why-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .why-image:hover img { transform: scale(1.04); }
+
+    /* ── SMART HOME ──────────────────────────────────────── */
+    .smart-section { background: #0d0d0d; }
+
+    .smart-section .ab-section-title { color: #fff; }
+    .smart-section .ab-section-title::after { background: var(--burgundy); }
+    .smart-section .ab-section-label { color: var(--burgundy); }
+
+    .smart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .smart-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+    }
+
+    .smart-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .smart-feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.07);
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .smart-feat:hover {
+      background: rgba(123,30,46,0.25);
+      border-color: var(--burgundy);
+    }
+
+    .smart-feat i {
+      color: var(--burgundy);
+      font-size: 14px;
+      width: 16px;
+    }
+
+    .smart-video video {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    /* ── CORE VALUES ─────────────────────────────────────── */
+    .values-section { background: #f8f6f4; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      background: #fff;
+      padding: 40px 32px;
+      border-radius: 4px;
+      border: 1px solid #e8e8e8;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.28s, transform 0.28s;
+    }
+
+    .value-card:hover {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+      transform: translateY(-4px);
+    }
+
+    /* Number watermark */
+    .value-card::before {
+      content: attr(data-num);
+      position: absolute;
+      top: -10px; right: 16px;
+      font-size: 90px;
+      font-weight: 700;
+      color: rgba(123,30,46,0.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .value-card i {
+      font-size: 26px;
+      color: var(--burgundy);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .value-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #666;
+    }
+
+    /* ── MANAGEMENT ──────────────────────────────────────── */
+    .management-section { background: #fff; }
+
+    /* MD spotlight */
+    .md-spotlight {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      background: #f8f6f4;
+      border-radius: 4px;
+      padding: 56px;
+      margin-bottom: 60px;
+      border: 1px solid #e8e8e8;
+      border-left: 4px solid var(--burgundy);
+    }
+
+    .md-photo {
+      flex-shrink: 0;
+    }
+
+    .md-photo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--burgundy);
+      display: block;
+    }
+
+    .md-info h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .md-info .md-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .md-info p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Management grid */
+    .mgmt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .mgmt-card {
+      background: #f8f6f4;
+      border-radius: 4px;
+      border: 1px solid #e8e8e8;
+      padding: 32px 24px;
+      text-align: center;
+      transition: box-shadow 0.28s, transform 0.28s, border-color 0.28s;
+    }
+
+    .mgmt-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+      transform: translateY(-4px);
+      border-color: var(--burgundy);
+    }
+
+    .mgmt-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e8e8e8;
+      margin: 0 auto 16px;
+      display: block;
+      transition: border-color 0.28s;
+    }
+
+    .mgmt-card:hover img { border-color: var(--burgundy); }
+
+    .mgmt-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .mgmt-card p {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--burgundy);
+      text-transform: uppercase;
+    }
+
+    /* ── TEAM ────────────────────────────────────────────── */
+    .team-section { background: #f8f6f4; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid #e8e8e8;
+      overflow: hidden;
+      transition: box-shadow 0.28s, transform 0.28s;
+    }
+
+    .team-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .team-card:hover img { transform: scale(1.05); }
+
+    .team-card .meta {
+      padding: 20px 18px;
+      border-top: 2px solid var(--burgundy);
+    }
+
+    .team-card .meta h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .team-card .meta p {
+      font-size: 12px;
+      color: #888;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .about-footer {
+      background: #1a1a1a;
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* ── REVEAL ANIMATION ────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.inview {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1000px) {
+      .vm-grid { grid-template-columns: 1fr 1fr; }
+      .vm-card.vm-image-card { display: none; }
+      .smart-grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 800px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-image { display: none; } /* hide on very small, optional */
+      .counters-grid { grid-template-columns: repeat(2, 1fr); }
+      .counter-box:nth-child(2) { border-right: none; }
+      .vm-grid { grid-template-columns: 1fr; }
+      .why-inner { grid-template-columns: 1fr; }
+      .why-image { height: 320px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .md-spotlight { flex-direction: column; text-align: center; gap: 30px; }
+      .smart-features { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .counters-grid { grid-template-columns: 1fr 1fr; }
+      .counter-box h3 { font-size: 36px; }
+      .about-hero-content h1 { font-size: 36px; }
+    }
+  </style>
 </head>
-<body>
 
-<header>
-  <div class="brand">
-    <a href="index.html">
-      <img src="logo2.png" alt="Logo" />
-    </a>
-  </div>
+<body class="project-page">
 
-  <!-- ✅ Mobile hamburger -->
-  <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-    ☰ MENU
-  </button>
+  <!-- ── HEADER (identical to index) ──────────────────────── -->
+  <header>
+    <div class="brand">
+      <a href="index.html">
+        <img src="logo2.png" alt="Logo" />
+      </a>
+    </div>
 
-  <nav id="main-nav">
-   
-    <ul>
-      <li><a href="index.html">HOME</a></li>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about-us.html">ABOUT US</a></li>
 
-      <li class="dropdown-who">
-        <a href="#" class="dropdown-toggle">Who We Are <span class="arrow">▾</span></a>
-        <ul class="submenu">
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </li>
+        <li class="dropdown dropdown-projects">
+          <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
+          <ul class="dropdown-menu">
 
-      <li class="dropdown dropdown-projects">
-        <a href="#" class="dropdown-toggle">PROJECTS <span class="arrow">▾</span></a>
-        <ul class="dropdown-menu">
-          <li class="dropdown-submenu">
-            <a href="#" class="dropdown-toggle">Residential <span class="arrow">▸</span></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/abuja/azalea-estate-durumi.html">Azalea Estate Durumi</a></li>
-                  <li><a href="Projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I & II</a></li>
-                  <li><a href="Projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
-                  <li><a href="Projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
-                  <li><a href="Projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
-                  <li><a href="Projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
-                  <li><a href="Projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
-                  <li><a href="Projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
-                  <li><a href="Projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
-                  <li><a href="Projects/abuja/salix-estate.html">Salix Estate</a></li>
-                  <li><a href="Projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
-                </ul>
-              </li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle">RESIDENTIAL <span class="arrow">▸</span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/Projects/abuja/azalea-estate-durumi.html">Azalea Smart City</a></li>
+                    <li><a href="/Projects/abuja/calytrix-estate-1-2.html">Calytrix Estate I &amp; II</a></li>
+                    <li><a href="/Projects/abuja/calytrix-estate-3.html">Calytrix Estate III</a></li>
+                    <li><a href="/Projects/abuja/calytrix-estate-4.html">Calytrix Estate IV</a></li>
+                    <li><a href="/Projects/abuja/camellia-estate-1.html">Camellia Estate I</a></li>
+                    <li><a href="/Projects/abuja/camellia-estate-2.html">Camellia Estate II</a></li>
+                    <li><a href="/Projects/abuja/camellia-estate-3.html">Camellia Estate III</a></li>
+                    <li><a href="/Projects/abuja/quesnelia-apartments.html">Quesnelia Apartments</a></li>
+                    <li><a href="/Projects/abuja/rhoswen-estate.html">Rhoswen Estate</a></li>
+                    <li><a href="/Projects/abuja/salix-estate.html">Salix Estate</a></li>
+                    <li><a href="/Projects/abuja/sen-gaya-estate.html">SEN Gaya Estate</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/Projects/kaduna/rabah-road.html">Rabah Road</a></li>
+                    <li><a href="/Projects/kaduna/inuwa-wada.html">Inuwa Wada</a></li>
+                    <li><a href="/Projects/kaduna/lafiya-road.html">Lafiya Road</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/Projects/kano/mariam-musa-estate.html">Mariam Musa Estate</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/Projects/lokoja/bungalow-city.html">Bungalow City</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
 
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Kaduna <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/kaduna/rabah-road.html">McDream Estate Rabah Road</a></li>
-                  <li><a href="Projects/kaduna/inuwa-wada.html">McDream Estate Inuwa Wada</a></li>
-                  <li><a href="Projects/kaduna/lafiya-road.html">McDream Estate Lafiya Road</a></li>
-                </ul>
-              </li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle">COMMERCIAL <span class="arrow">▸</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/Projects/commercial/Abuja/Azuza.html">Azuza Plaza</a></li>
+                <li><a href="/Projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
+              </ul>
+            </li>
 
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/kano/mariam-musa-estate.html">MARIAM MUSA ESTATE</a></li>
-                </ul>
-              </li>
+            <li><a href="investment-and-mortgage.html">Investment &amp; Mortgage</a></li>
+          </ul>
+        </li>
 
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Lokoja <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/lokoja/bungalow-city.html">Bungalow City</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
+        <li><a href="news.html">NEWS</a></li>
 
-          <li class="dropdown-submenu">
-            <a href="#" class="dropdown-toggle">Commercial <span class="arrow">▸</span></a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Abuja <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/commercial/abuja/azuza.html">AZUZA PLAZA</a></li>
-                </ul>
-              </li>
+        <li class="dropdown dropdown-contact">
+          <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="agent.html">Agent / Career Registration</a></li>
+          </ul>
+        </li>
+      </ul>
 
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Kano <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/commercial/kano/tropicana.html">Tropicana Mall</a></li>
-                </ul>
-              </li>
+      <a href="book-visit.html" class="book-btn">Book a Visit</a>
+    </nav>
 
-              <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle">Lagos <span class="arrow">▸</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="Projects/commercial/lagos/oxygen.html">Oxygen Mall</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-      <li class="dropdown-contact">
-        <a href="#" class="dropdown-toggle">CONTACT <span class="arrow">▾</span></a>
-        <ul class="submenu">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="career.html">Agent/Career Registration</a></li>
-        </ul>
-      </li>
-
-      <li class="nav-cta">
-        <a href="book-visit.html" class="book-btn">Book a Visit</a>
-      </li>
-    </ul>
-
-  </nav>
-</header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-<h1>ABOUT US</h1>
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <span class="eyebrow">McDream Concepts</span>
+      <h1>About Us</h1>
     </div>
   </section>
 
+  <!-- ── OUR STORY ──────────────────────────────────────────── -->
+  <section class="ab-section story-section reveal">
+    <span class="ab-section-label">Who We Are</span>
+    <h2 class="ab-section-title">Our Story</h2>
 
-  <section class="section">
-    <h2>Our Story</h2>
- <div class="about-section">
-  <div class="about-text">
-    <p>
-      McDream Concepts LTD, is a premier real estate company headquartered in Abuja Nigeria. Founded in
-      2018 under the dynamic leadership of Engr. Ismail Zubair; we have built a
-      reputation for delivering top-quality homes and commercial outlets across Nigeria.
-      From modern residential estates in Life Camp Abuja to sleek office spaces in Kano,
-      Mc Dream Concepts Ltd brings innovation, consistency and excellence to
-      every project.
-      <br><br>
-      We take pride in the significant contributions we have made in the real estate
-      industry since our establishment. We are fully compliant with global construction best practice and registered with the corporate affairs commission
-      (RC 1473115) under the laws of the federal Republic of Nigeria. We are
-      constantly dedicated to providing our clients with personalised solutions for all
-      their construction needs, hence, the impressive portfolio built from our sheer
-      consistency in executing projects with exceptional quality over the years.
-      <br><br>
-      Our core areas of expertise include: residential construction, commercial buildings,
-      project management and property development. We don't just develop properties,
-      we also encourage sustainability and eco-friendly environments that engender
-      healthy living.
-      <br><br>
-      We are Mc Dream Concepts Ltd. We keep our promises.
-    </p>
-  </div> 
-  <div class="about-image">
-    <img src="images/chairman2.jpeg" alt="Why choose us">
-  </div>
-</div>
-        <div class="counters">
-          <div class="counter"><h3>10+</h3><p>Estates Completed</p></div>
-          <div class="counter"><h3>700+</h3><p>Homes Built</p></div>
-          <div class="counter"><h3>4</h3><p>Cities Active</p></div>
-          <div class="counter"><h3>12+</h3><p>Years Experience</p></div>
-        </div>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>McDream Concepts LTD is a premier real estate company headquartered in Abuja, Nigeria. Founded in 2018 under the dynamic leadership of Engr. Ismail Zubair, we have built a reputation for delivering top-quality homes and commercial outlets across Nigeria. From modern residential estates in Life Camp, Abuja, to sleek office spaces in Kano, McDream Concepts Ltd brings innovation, consistency and excellence to every project.</p>
+        <p>We take pride in the significant contributions we have made in the real estate industry since our establishment. We are fully compliant with global construction best practice and registered with the Corporate Affairs Commission (RC 1473115) under the laws of the Federal Republic of Nigeria.</p>
+        <p>We are constantly dedicated to providing our clients with personalised solutions for all their construction needs — hence the impressive portfolio built from our sheer consistency in executing projects with exceptional quality over the years.</p>
+        <p>Our core areas of expertise include: residential construction, commercial buildings, project management and property development. We don't just develop properties — we encourage sustainability and eco-friendly environments that engender healthy living.</p>
+        <p style="font-weight:600; color:#111; font-size:17px;">We are McDream Concepts Ltd. We keep our promises.</p>
       </div>
 
+      <div class="story-image">
+        <img src="images/chairman2.jpeg" alt="McDream Leadership">
+      </div>
     </div>
   </section>
 
-<section class="section">
-    <h2>Vision & Mission</h2>
+  <!-- ── COUNTERS ────────────────────────────────────────────── -->
+  <div class="counters-strip">
+    <div class="counters-grid">
+      <div class="counter-box reveal">
+        <h3>10<span>+</span></h3>
+        <p>Estates Completed</p>
+      </div>
+      <div class="counter-box reveal">
+        <h3>700<span>+</span></h3>
+        <p>Homes Built</p>
+      </div>
+      <div class="counter-box reveal">
+        <h3>4</h3>
+        <p>Cities Active</p>
+      </div>
+      <div class="counter-box reveal">
+        <h3>12<span>+</span></h3>
+        <p>Years Experience</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VISION & MISSION ───────────────────────────────────── -->
+  <section class="ab-section vm-section reveal">
+    <span class="ab-section-label">What Drives Us</span>
+    <h2 class="ab-section-title">Vision &amp; Mission</h2>
+
     <div class="vm-grid">
-      <div class="vm-card"><h3>Our Vision</h3><p>To become one of Africa's most trusted and innovative real estate and investment companies; delivering affordable and sustainable projects that redefine modern living and enrich communities</p></div>
+      <div class="vm-card">
+        <i class="vm-icon fa-solid fa-eye"></i>
+        <h3>Our Vision</h3>
+        <p>To become one of Africa's most trusted and innovative real estate and investment companies — delivering affordable and sustainable projects that redefine modern living and enrich communities.</p>
+      </div>
 
-      <div class="vm-card"><h3>Our Mission</h3><p>To be a consumer-centric real estate company committed to delivering, value driven solutions through strategic partnerships, while promoting secure property ownership, profitable investment oppportunities and long-term economic prosperity for our clients.</p></div>
-      <img src="images/oii.jpeg" alt="Why choose us">
-    </div>
-  </section>
-<section class="section why-section">
-  <h2>Why Choose Us</h2>
+      <div class="vm-card">
+        <i class="vm-icon fa-solid fa-bullseye"></i>
+        <h3>Our Mission</h3>
+        <p>To be a consumer-centric real estate company committed to delivering value-driven solutions through strategic partnerships, while promoting secure property ownership, profitable investment opportunities and long-term economic prosperity for our clients.</p>
+      </div>
 
-  <div class="two-col">
-    <div class="why-text">
-      <h1>FCDA APPROVED BUILDINGS</h1>
-      <p>
-        Our properties have been approved by FCDA to meet the standards for urban development and fulfill the specific needs of our clients.
-      </p>
-      <p>
-        Our customer-first approach, transparency and accountability make us one of Nigeria’s fastest-growing real estate brands.
-      </p>
-
-      <h1>QUALITY ARCHITECTURAL DESIGN</h1>
-      <p>
-        McDREAM Concepts LTD understands the importance of modern architectural designs and strives to provide exceptional internal designs for all of its properties.
-      </p>
-    </div>
-
-    <div class="why-image">
-      <img src="cam5.jpg">
-    </div>
-  </div>
-</section>
-
- 
-
+      <div class="vm-card vm-image-card">
+        <img src="images/oii.jpeg" alt="McDream Project">
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Smart Home Solutions</h2>
-    <div class="two-col">
-      <div>
-        <p>Experience full control of your home from anywhere in the world — using touch, voice, gesture or facial expression. Our smart systems integrate seamlessly with your lifestyle.</p>
-        <div class="smart-list">
-          <p>✔ Smart Energy Consumption</p>
-          <p>✔ Motion & Water Management</p>
-          <p>✔ 24Hrs CCTV Monitoring</p>
-          <p>✔ Smoke Detection & Alerts</p>
-          <p>✔ Home Automation</p>
-          <p>✔ High Speed Internet</p>
-          <p>✔ Free Cable TV</p>
+  <!-- ── WHY CHOOSE US ──────────────────────────────────────── -->
+  <section class="why-section reveal">
+    <div class="why-inner">
+      <div class="why-text">
+        <span class="ab-section-label">Why Us</span>
+        <h2 class="ab-section-title">Why Choose McDream</h2>
+
+        <div class="why-item">
+          <h4><i class="fa-solid fa-circle-check" style="margin-right:8px;"></i>FCDA Approved Buildings</h4>
+          <p>Our properties have been approved by the FCDA to meet the standards for urban development and fulfill the specific needs of our clients. Our customer-first approach, transparency and accountability make us one of Nigeria's fastest-growing real estate brands.</p>
+        </div>
+
+        <div class="why-item">
+          <h4><i class="fa-solid fa-drafting-compass" style="margin-right:8px;"></i>Quality Architectural Design</h4>
+          <p>McDream Concepts LTD understands the importance of modern architectural design and strives to provide exceptional internal designs for all of its properties — from layout to finishing, every detail is intentional.</p>
+        </div>
+
+        <div class="why-item">
+          <h4><i class="fa-solid fa-shield-halved" style="margin-right:8px;"></i>Trusted &amp; Registered</h4>
+          <p>Registered with the Corporate Affairs Commission (RC 1473115) and fully compliant with global construction best practices — your investment is protected.</p>
         </div>
       </div>
 
-      <!-- Video preserved exactly (same src + poster) -->
-      <video src="images/newvid.mp4" controls poster="images/smart-poster.jpg" style="border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.08);"></video>
+      <div class="why-image">
+        <img src="cam5.jpg" alt="Why Choose McDream">
+      </div>
     </div>
   </section>
 
-  
+  <!-- ── SMART HOME ──────────────────────────────────────────── -->
+  <section class="ab-section smart-section reveal">
+    <span class="ab-section-label">Technology</span>
+    <h2 class="ab-section-title">Smart Home Solutions</h2>
 
-  <section class="section">
-    <h2>Core Values</h2>
+    <div class="smart-grid">
+      <div class="smart-text">
+        <p>Experience full control of your home from anywhere in the world — using touch, voice, gesture or facial expression. Our smart systems integrate seamlessly with your lifestyle, making every McDream home a connected, intelligent living space.</p>
+
+        <div class="smart-features">
+          <div class="smart-feat"><i class="fa-solid fa-bolt"></i> Smart Energy Consumption</div>
+          <div class="smart-feat"><i class="fa-solid fa-droplet"></i> Motion &amp; Water Management</div>
+          <div class="smart-feat"><i class="fa-solid fa-video"></i> 24hr CCTV Monitoring</div>
+          <div class="smart-feat"><i class="fa-solid fa-fire-flame-simple"></i> Smoke Detection &amp; Alerts</div>
+          <div class="smart-feat"><i class="fa-solid fa-house-signal"></i> Home Automation</div>
+          <div class="smart-feat"><i class="fa-solid fa-wifi"></i> High Speed Internet</div>
+          <div class="smart-feat"><i class="fa-solid fa-tv"></i> Free Cable TV</div>
+          <div class="smart-feat"><i class="fa-solid fa-lock"></i> Smart Security Access</div>
+        </div>
+      </div>
+
+      <div class="smart-video">
+        <video src="images/newvid.mp4" controls poster="images/smart-poster.jpg"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CORE VALUES ────────────────────────────────────────── -->
+  <section class="ab-section values-section reveal">
+    <span class="ab-section-label">What We Stand For</span>
+    <h2 class="ab-section-title">Core Values</h2>
 
     <div class="values-grid">
-      <div class="value-item"><h4>Integrity</h4><p>We operate transparently and keep our word at all times.</p></div>
-      <div class="value-item"><h4>Innovation</h4><p>We integrate modern technologies into all our projects.</p></div>
-      <div class="value-item"><h4>Sustainability</h4><p>We maintain strong engineering standards and premium finishing.</p></div>
+      <div class="value-card" data-num="01">
+        <i class="fa-solid fa-handshake"></i>
+        <h4>Integrity</h4>
+        <p>We operate transparently and keep our word at all times — with clients, partners and within our own teams.</p>
+      </div>
+      <div class="value-card" data-num="02">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h4>Innovation</h4>
+        <p>We integrate modern technologies into all our projects, from smart home systems to cutting-edge construction methods.</p>
+      </div>
+      <div class="value-card" data-num="03">
+        <i class="fa-solid fa-leaf"></i>
+        <h4>Sustainability</h4>
+        <p>We maintain strong engineering standards, premium finishing and eco-friendly environments that support healthy living.</p>
+      </div>
+    </div>
   </section>
 
- <section class="section">
-  <h2>Management & Leadership</h2>
+  <!-- ── MANAGEMENT ─────────────────────────────────────────── -->
+  <section class="ab-section management-section reveal">
+    <span class="ab-section-label">Leadership</span>
+    <h2 class="ab-section-title">Management &amp; Leadership</h2>
 
-  <div class="management">
-
-    <!-- MANAGING DIRECTOR -->
-    <div class="man-card md">
-      <img src="images/md.png" alt="MD">
-      <h3>Engr. (Dr.) A.S. Yunusa</h3>
-      <p>Managing Director</p>
+    <!-- MD Spotlight -->
+    <div class="md-spotlight">
+      <div class="md-photo">
+        <img src="images/md.png" alt="Managing Director">
+      </div>
+      <div class="md-info">
+        <h3>Engr. (Dr.) A.S. Yunusa</h3>
+        <span class="md-title">Managing Director</span>
+        <p>Under the leadership of Engr. (Dr.) A.S. Yunusa, McDream Concepts has grown from a vision into one of Nigeria's most trusted real estate brands — delivering hundreds of homes and commercial spaces across multiple states with a commitment to quality and client satisfaction.</p>
+      </div>
     </div>
 
-    <!-- OTHER MANAGEMENT -->
-    <div class="management-list">
-
-      <div class="man-card">
+    <!-- Management Row 1 -->
+    <div class="mgmt-grid">
+      <div class="mgmt-card">
         <img src="images/COO.jpg" alt="COO">
         <h3>Engr. Bala Mohammed Isa</h3>
         <p>Chief Operating Officer</p>
       </div>
-
-      <div class="man-card">
+      <div class="mgmt-card">
         <img src="images/zbr.png" alt="Head Kaduna">
         <h3>Engr. Abdulrahman Zubair</h3>
-        <p>Head of Operations and Technical (Kaduna)</p>
+        <p>Head of Operations &amp; Technical (Kaduna)</p>
       </div>
-    </div>
-    
- <div class="management-list">
-      <div class="man-card">
+      <div class="mgmt-card">
         <img src="images/msb.png" alt="Head Kano">
         <h3>Engr. Musbahu A. Bashir</h3>
-        <p>Head of Operations and Technical (Kano)</p>
+        <p>Head of Operations &amp; Technical (Kano)</p>
       </div>
-
-      <div class="man-card">
+      <div class="mgmt-card">
         <img src="images/kogi.jpeg" alt="Head Kogi">
         <h3>Engr. Umar Muhammad</h3>
-        <p>Head of Operations and Technical (Kogi)</p>
+        <p>Head of Operations &amp; Technical (Kogi)</p>
       </div>
-
     </div>
-  </div>
-</section>
-
-
-  <section class="section">
-    <h2>Our Team</h2>
-    <div class="team-grid">
-      <div class="team-card"><img src="images/admin.png" alt="Mr. Obansa"><div class="meta"><h4>Mr. Omeiza Obansa</h4><p>Head Admin & Compliance</p></div></div>
-      <div class="team-card"><img src="images/d2.jpg" alt="Engr. Abbas"><div class="meta"><h4>Engr. Abbas Adeiza Mohammed </h4><p>Head Of Technical</p></div></div>
-      <div class="team-card"><img src="images/Halima.jpg" alt="Haleema"><div class="meta"><h4>Haleema Aliyu</h4><p>Business Coordinator and Strategy</p></div></div>
-      <div class="team-card"><img src="images/fola.jpg" alt="Folashade"><div class="meta"><h4>Folashade Olugbenga</h4><p>Head of Customer Relations</p></div></div>
-      <div class="team-card"><img src="images/obii.jpeg" alt="Obi"><div class="meta"><h4>Mr. Obi</h4><p>Head of Marketing and Sales</p></div></div>
   </section>
 
-  <footer style="text-align:center;padding:40px 0;color:#777">© 2026 McDream Concepts. All Rights Reserved.</footer>
+  <!-- ── TEAM ───────────────────────────────────────────────── -->
+  <section class="ab-section team-section reveal">
+    <span class="ab-section-label">The People</span>
+    <h2 class="ab-section-title">Our Team</h2>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="images/admin.png" alt="Mr. Obansa">
+        <div class="meta"><h4>Mr. Omeiza Obansa</h4><p>Head Admin &amp; Compliance</p></div>
+      </div>
+      <div class="team-card">
+        <img src="images/d2.jpg" alt="Engr. Abbas">
+        <div class="meta"><h4>Engr. Abbas Adeiza Mohammed</h4><p>Head of Technical</p></div>
+      </div>
+      <div class="team-card">
+        <img src="images/Halima.jpg" alt="Haleema">
+        <div class="meta"><h4>Haleema Aliyu</h4><p>Business Coordinator &amp; Strategy</p></div>
+      </div>
+      <div class="team-card">
+        <img src="images/fola.jpg" alt="Folashade">
+        <div class="meta"><h4>Folashade Olugbenga</h4><p>Head of Customer Relations</p></div>
+      </div>
+      <div class="team-card">
+        <img src="images/obii.jpeg" alt="Obi">
+        <div class="meta"><h4>Mr. Obi</h4><p>Head of Marketing &amp; Sales</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <div class="about-footer">
+    &copy; 2026 McDream Concepts Ltd. Designed For Excellence.
+  </div>
 
 
-  <!-- Intersection reveal -->
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+
+  <!-- Scroll reveal -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("inview");
-          });
-        },
-        { threshold: 0.18 }
-      );
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("inview"); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+  </script>
 
-      document.querySelectorAll(".section").forEach((s) => observer.observe(s));
+  <!-- Header scroll -->
+  <script>
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50);
     });
   </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("#main-nav");
-  const btn = document.querySelector(".menu-toggle");
-  const closeBtn = document.querySelector(".menu-close");
+  <!-- Unified menu (same as index) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector(".menu-toggle");
+      const nav    = document.getElementById("main-nav");
 
-  if (!nav) return;
-
-  const closeAllDropdowns = () => {
-    nav.querySelectorAll("li.open").forEach(li => li.classList.remove("open"));
-  };
-
-  const closeMenu = () => {
-    closeAllDropdowns();
-    nav.classList.remove("nav-open");
-    btn?.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-  };
-
-  const openMenu = () => {
-    nav.classList.add("nav-open");
-    btn?.setAttribute("aria-expanded", "true");
-  };
-
-  // Toggle mobile menu
-  btn?.addEventListener("click", () => {
-    nav.classList.contains("nav-open") ? closeMenu() : openMenu();
-  });
-
-  // Optional X close button
-  closeBtn?.addEventListener("click", closeMenu);
-
-  // Dropdown handling (supports deep nesting)
-  nav.addEventListener("click", (e) => {
-    const toggle = e.target.closest("a.dropdown-toggle");
-    if (!toggle || !nav.contains(toggle)) return;
-
-    const submenu = toggle.nextElementSibling;
-    if (!submenu || submenu.tagName !== "UL") return;
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    const li = toggle.closest("li");
-    if (!li) return;
-
-    // close siblings at same level
-    const parentUl = li.parentElement;
-    if (parentUl) {
-      [...parentUl.children].forEach((sib) => {
-        if (sib !== li) {
-          sib.classList.remove("open");
-          sib.querySelectorAll("li.open").forEach(x => x.classList.remove("open"));
-        }
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("nav-open");
+        toggle.classList.toggle("active", isOpen);
+        document.body.style.overflow = isOpen ? "hidden" : "";
       });
-    }
 
-    li.classList.toggle("open");
-  });
+      nav.querySelectorAll("a:not(.dropdown-toggle)").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("nav-open");
+          toggle.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
 
-  // ✅ Close EVERYTHING when clicking outside
-  document.addEventListener("click", (e) => {
-    const insideNav = nav.contains(e.target);
-    const insideBtn = btn && btn.contains(e.target);
-    if (!insideNav && !insideBtn) closeMenu();
-  });
+      nav.querySelectorAll(".dropdown-toggle").forEach(trigger => {
+        trigger.addEventListener("click", function (e) {
+          if (window.innerWidth > 900) return;
+          e.preventDefault();
+          e.stopPropagation();
+          const parentLi = this.closest("li");
+          parentLi.parentElement
+            .querySelectorAll(":scope > li.open")
+            .forEach(sib => { if (sib !== parentLi) sib.classList.remove("open"); });
+          parentLi.classList.toggle("open");
+        });
+      });
 
-  // Esc key closes everything
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-});
-</script>
+      if (window.innerWidth > 900) {
+        nav.querySelectorAll("li.dropdown-projects, li.dropdown-submenu, li.dropdown-contact").forEach(li => {
+          li.addEventListener("mouseenter", () => li.classList.add("open"));
+          li.addEventListener("mouseleave", () => li.classList.remove("open"));
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
-
